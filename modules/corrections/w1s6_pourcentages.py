@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-from exercice_function import ExerciceFunction
-from args import Args
+from framework.exercice_function import ExerciceFunction
+from framework.args import Args
 
-proteines = 'CAGT'
+nucleotides = 'CAGT'
 # @BEG@ name=pourcentages
 def pourcentages(adn):
     "calcule des pourcentages de CAGT dans un adn"
     total = len(adn)
     return {
-        proteine :
-        len([p for p in adn if p == proteine])*100./total
-        for proteine in proteines}
+        nucleotide : len([p for p in adn if p == nucleotide])*100./total
+        for nucleotide in nucleotides
+    }
 # @END@
 
 def pourcentages_ko():
-    return { p:0.25 for p in proteines }
+    return { p:0.25 for p in nucleotides }
 
 from samples import slides
 
