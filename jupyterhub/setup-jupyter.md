@@ -41,15 +41,27 @@ See jupyter/ subdir in git repo for
 * initscript
 * config file (see git) - run on port 80
 
-##  **locale**
+##  locale and UniCode
 
-    locale-gen en_US.UTF-8
-    update-locale LANG=en_US
+    # locale-gen en_US.UTF-8
+    # update-locale LANG=en_US
+
+Plus, as this was not bad enough, I also had to apply manually this change 
+
+    [jupyter] /usr/lib/python2.7 # diff site.py site.py.distrib
+    495c495
+    <     if True:
+    ---
+    >     if 0:
+    
+so that `sys.getdefaultencoding()` would finally return `UTF-8` and not stubbornly  `ascii` like it used to.
+
+## git
+
+    # aptg-et install -y git
 
 ## TODOs
 
 * **configure `PYTHONPATH` for spawned kernels**
-  
-Currently I can't seem to import a sample exercice.
 
-
+* **add keyboard shortcuts to the mix**

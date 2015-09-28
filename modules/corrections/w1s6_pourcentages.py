@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from framework.exercice_function import ExerciceFunction
-from framework.args import Args
+from nbautoeval.exercice_function import ExerciceFunction
+from nbautoeval.args import Args
 
 nucleotides = 'CAGT'
 # @BEG@ name=pourcentages
