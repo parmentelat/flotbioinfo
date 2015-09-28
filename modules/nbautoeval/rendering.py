@@ -4,7 +4,7 @@ from __future__ import print_function
 
 import pprint
 
-from types import StringTypes, FunctionType, BuiltinFunctionType, BuiltinMethodType
+from types import FunctionType, BuiltinFunctionType, BuiltinMethodType
 
 ########## styles in html output
 font_style = 'font-family:monospace;font-size:small;'
