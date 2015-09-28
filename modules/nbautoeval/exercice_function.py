@@ -7,14 +7,13 @@ from __future__ import print_function
 
 from IPython.display import HTML
 
-from rendering import (
+from nbautoeval.log import log_correction
+from nbautoeval.rendering import (
     Table, TableRow, TableCell, CellLegend,
     font_style, header_font_style,
     ok_style, ko_style,
     center_cell_style,
     truncate_value)
-
-from log import log_correction
 
 DEBUG=False
 #DEBUG=True

@@ -5,7 +5,7 @@ from __future__ import print_function
 import copy
 import pprint
 
-from rendering import commas, truncate_str, truncate_value
+from nbautoeval.rendering import commas, truncate_str, truncate_value
 
 ####################
 class ArgsKeywords(object):
