@@ -37,9 +37,10 @@ For now this is mostly only a convenient way to show the notebooks in a running 
 
 ## configured **jupyterhub**
 
-See jupyter/ subdir in git repo for
-* initscript
-* config file (see git) - run on port 80
+See `jupyter/` subdir in git repo for
+
+* initscript `jupyterhub.sh`
+* config file `/root/jupyterhub/jupyterhub_config.py` - primarily run on port 80
 
 ##  locale and UniCode
 
@@ -60,8 +61,11 @@ so that `sys.getdefaultencoding()` would finally return `UTF-8` and not stubborn
 
     # aptg-et install -y git
 
-## TODOs
+## PYTHONPATH
 
-* **configure `PYTHONPATH` for spawned kernels**
+In order to have all users find the `modules/` repo in their local dir, I wrote a file named `jupyter_notebook_config.py` as per [thie link](https://github.com/jupyter/jupyterhub/issues/227); it is intended to be installed in `/etc/jupyter`.
+
+
+## TODOs
 
 * **add keyboard shortcuts to the mix**
