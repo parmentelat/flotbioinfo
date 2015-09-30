@@ -22,6 +22,12 @@ Post-install and open up ssh access for pushing setup script
 * which does everything needed wrt python/jupyter/jupyterhub, 
 * in particular the creation of user `bioinfo`
 * it does not yet configure the VM so that jupyterhub gets started at boot-time
+* sept. 30 2015 : 
+jupyterhub (0.2.0)
+jupyter (1.0.0)
+jupyter-client (4.0.0)
+jupyter-console (4.0.2)
+jupyter-core (4.0.6)
 
 # browser
 
@@ -35,7 +41,7 @@ For now this is mostly only a convenient way to show the notebooks in a running 
 
 # Additions
 
-## configured **jupyterhub**
+## configured `jupyterhub`
 
 See `jupyter/` subdir in git repo for
 
@@ -66,6 +72,27 @@ so that `sys.getdefaultencoding()` would finally return `UTF-8` and not stubborn
 In order to have all users find the `modules/` repo in their local dir, I wrote a file named `jupyter_notebook_config.py` as per [thie link](https://github.com/jupyter/jupyterhub/issues/227); it is intended to be installed in `/etc/jupyter`.
 
 
+## Various customizations
+
+* First off, there seems to be some confusion between `~/.ipython` and `~/.jupyter`. I symlink them together for now
+
+* Then in order to install the keyboard shortcuts I had in place for developping flotpython:
+  * I refactored older `devel_custom.js` to produce an extension 
+  * stored in git under `nbextensions/author-keyboard.js`
+  * that gets installed (manually) under `/home/bioinfo/.jupyter/nbextensions/author-keyboard.js`
+  * Plus, I had to run a somewhat magical JS sentence that reads like this; not quite sure what this is all about..
+
+#
+    IPython.notebook.config.update({
+      "load_extensions": {"author-keyboard":true}
+    })
+  
+  
+* `custom.css` is for rendering, for now I just copied manually
+  * `flotpython/html/custom.css` 
+  * onto `bioinfo@jupyter:.jupyter/`
+  *  and in `.jupyter/profile_default/static/custom/custom.css` 
+
 ## TODOs
 
-* **add keyboard shortcuts to the mix**
+Automate all this for creating new users on the fly

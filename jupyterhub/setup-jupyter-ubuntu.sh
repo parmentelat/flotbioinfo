@@ -36,6 +36,9 @@ echo ====================
 ########## matplotlib
 apt-get install -y python-matplotlib python3-matplotlib
 
+### JS console was complaining about this, so ...
+pip3 install ipywidgets
+
 # at this point:
 # I manually start jupyterhub in a terminal as root
 # I can login at jupyter:8000 as bioinfo
