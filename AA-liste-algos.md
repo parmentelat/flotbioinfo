@@ -1,11 +1,32 @@
 # MOOC « Bioinformatique : génomes et algorithmes »
+
+## Suppléments
+
+J'envisage d'ajouter également 2 compléments transverses, à voir où ça peut se caser
+
+* **?.?** Explication de comment utiliser les notebooks
+  * Voir avec Jean-Marc s'il pense qu'on peut mettre la vidéo de Python2 telle quelle ou bien ?
+  * En tous cas on peut s'inspirer du notebook de python2
+
+* **?.?**  Rapide introduction à python
+  * Je ne sais pas encore combien de compléments il faut
+  * Au minimum, introduire quelque part
+    * les chaines de caracteres et `for`
+    * les listes pour dessiner
+    * les tuples et l'affectation a,b = (1, 2)
+    * print()
+
+* **-- OR --** on peut aussi envisager d'introduire les trucs au fur et à mesure
+
+Le mieux, il me semble, est de faire d'abord tous les algos pour voir quel est le meilleur angle pour cette intro
+
 ## Liste des algorithmes 
 
-* Comptage des nucléotides : nombre de A, de C, de G, de T, nombre total et calcul des fréquences
+* **1.5** Comptage des nucléotides : nombre de A, de C, de G, de T, nombre total et calcul des fréquences
 
 * Promenade sur l’ADN (DNA walk) : 
-  * tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré ;
-  * tracé « compressé » : un segment tous les n segments élémentaires
+  * **1.7** tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré ;
+  * **1.8** tracé « compressé » : un segment tous les n segments élémentaires
 
 * Comptage des nucléotides dans une fenêtre, glissante et recouvrante, parcourant la séquence, calcul des valeurs du ratio G/C au sein de chaque fenêtre et affichage de la courbe d’évolution de ce ratio le long de la séquence
 
