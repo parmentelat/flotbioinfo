@@ -122,7 +122,9 @@ define(['base/js/namespace'],
 	       // ctrl-m ctrl-f : full monty
 	       var clear_restart_rerun_action = {
 		   help: "Clear all cells, restart kernel, run all cells again",
-		   icon: 'refresh',
+		   /* tried stuff like 'fa-battery-full' 'fa-television' 'fa-hourglass' */
+		   /* not working, jupyter seems to have 4.2 */
+		   icon: 'fa-lightbulb-o',
 		   help_index: '',
 		   handler: function(env) {
 		       var on_success = function(){
