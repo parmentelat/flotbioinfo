@@ -1,53 +1,3 @@
-// leave at least 2 line with only a star on it below, or doc generation fails
-/**
- *
- *
- * Placeholder for custom user javascript
- * mainly to be overridden in profile/static/custom/custom.js
- * This will always be an empty file in IPython
- *
- * User could add any javascript in the `profile/static/custom/custom.js` file
- * (and should create it if it does not exist).
- * It will be executed by the ipython notebook at load time.
- *
- * Same thing with `profile/static/custom/custom.css` to inject custom css into the notebook.
- *
- * Example :
- *
- * Create a custom button in toolbar that execute `%qtconsole` in kernel
- * and hence open a qtconsole attached to the same kernel as the current notebook
- *
- *    $([IPython.events]).on('app_initialized.NotebookApp', function(){
- *        IPython.toolbar.add_buttons_group([
- *            {
- *                 'label'   : 'run qtconsole',
- *                 'icon'    : 'icon-terminal', // select your icon from http://fortawesome.github.io/Font-Awesome/icons
- *                 'callback': function () {
- *                     IPython.notebook.kernel.execute('%qtconsole')
- *                 }
- *            }
- *            // add more button here if needed.
- *            ]);
- *    });
- *
- * Example :
- *
- *  Use `jQuery.getScript(url [, success(script, textStatus, jqXHR)] );`
- *  to load custom script into the notebook.
- *
- *    // to load the metadata ui extension example.
- *    $.getScript('/static/notebook/js/celltoolbarpresets/example.js');
- *    // or
- *    // to load the metadata ui extension to control slideshow mode / reveal js for nbconvert
- *    $.getScript('/static/notebook/js/celltoolbarpresets/slideshow.js');
- *
- *
- * @module IPython
- * @namespace IPython
- * @class customjs
- * @static
- */
-
 // This is a rewrite of my previous devel_custom.js (that was for python2s1)
 // for adding a few convenience keyboard shortcuts in jupyter (for bioinfo)
 // how to do this is based on this page here
@@ -92,7 +42,7 @@ define(['base/js/namespace'],
 		       return false;
 		   }
 	       });
-	       // ctrl-m ctrl-c
+	       // ctrl-m ctrl-c : clear all output
 	       IPython.keyboard_manager.command_shortcuts.add_shortcut('ctrl-c', {
 		   help: 'Clear all output',                  
 		   handler: function (event) {                
@@ -143,16 +93,29 @@ define(['base/js/namespace'],
 		   }
 	       };
 	       IPython.keyboard_manager.command_shortcuts.add_shortcut(
-		   'ctrl-f',
-		   clear_restart_rerun_action
-	       );
-									   
+		   'ctrl-f', clear_restart_rerun_action);
 	       IPython.keyboard_manager.actions.register(
-		   clear_restart_rerun_action,
-		   'clear_restart_rerun',
-		   'author-keyboard');
+		   clear_restart_rerun_action, 'clear_restart_rerun', 'author-keyboard');
 
-	       IPython.toolbar.add_buttons_group(['author-keyboard.clear_restart_rerun'])
+	       // ctrl-m ctrl-m : clear all output and save
+	       var clear_save_action = {
+		   help: "Clear all outputs and save",
+		   icon: 'fa-save',
+		   help_index: '',
+		   handler: function(env) {
+		       env.notebook.clear_all_output();
+		       env.notebook.save_notebook();
+		   }
+	       };
+	       IPython.keyboard_manager.command_shortcuts.add_shortcut(
+		   'ctrl-m', clear_save_action);
+	       IPython.keyboard_manager.actions.register(
+		   clear_save_action, 'clear_save','author-keyboard');
+
+	       IPython.toolbar.add_buttons_group([
+		   'author-keyboard.clear_restart_rerun',
+		   'author-keyboard.clear_save',
+	       ]);
 	    // A small hint so we can see through firebug that our custom code executed
 	    console.log("Extension author-keyboard loaded");
 	    
