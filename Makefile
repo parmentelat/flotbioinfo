@@ -1,7 +1,12 @@
-FOCUS = w?
-
 all: norm
 
+# work on one week at a time with FOCUS=W2
+FOCUS     = W?
+
+# for phony targets
+force:
+
+####################
 # run nbnorm on all notebooks
 norm normalize: normalize-notebook
 
