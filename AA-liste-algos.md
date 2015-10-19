@@ -1,26 +1,38 @@
 # MOOC « Bioinformatique : génomes et algorithmes »
 
-## Suppléments
+##
 
 J'envisage d'ajouter également 2 compléments transverses, à voir où ça peut se caser
 
 * **?.?** Explication de comment utiliser les notebooks
-  * Voir avec Jean-Marc s'il pense qu'on peut mettre la vidéo de Python2 telle quelle ou bien ?
   * En tous cas on peut s'inspirer du notebook de python2
 
 * **?.?**  Rapide introduction à python
   * Je ne sais pas encore combien de compléments il faut
   * Au minimum, introduire quelque part
-    * les chaines de caracteres et `for`
-    * les listes pour dessiner
-    * les tuples et l'affectation a,b = (1, 2)
-    * print()
 
 * **-- OR --** on peut aussi envisager d'introduire les trucs au fur et à mesure
 
 Le mieux, il me semble, est de faire d'abord tous les algos pour voir quel est le meilleur angle pour cette intro
 
-## Liste des algorithmes 
+## Liste des Suppléments
+
+J'essaie de résumer ici l'impact sur la structure du cours, comparé à la V1.
+
+Il s'agit donc principalement les algorithmes dont la liste avait été établie par François, mais j'ajoute également quelques chapitres d'intro à python, et aux notebooks eux-mêmes. 
+
+* **1.4** Introduction aux notebooks 
+
+  * Voir avec Jean-Marc s'il pense qu'on peut mettre la vidéo de Python2 telle quelle ou bien ?
+  * Je compte reprendre un notebook que j'avais rédigé pour python2, et idéalement en faire une version totalement neutre par rapport au MOOC pour réutilisation possible le cas échéant.
+ 
+* **1.4** Quelques notions de base de python
+
+ Super rapide car je compte introduire les choses au fur et à mesure, mais il me faut quand même un tout petit peu de matière avant de commencer.
+    * les chaines de caracteres et `for`
+    * les listes pour dessiner
+    * les tuples et l'affectation a,b = (1, 2)
+    * print()
 
 * **1.5** Comptage des nucléotides : nombre de A, de C, de G, de T, nombre total et calcul des fréquences
 
