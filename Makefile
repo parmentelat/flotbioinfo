@@ -21,3 +21,8 @@ normalize-nb normalize-notebook: force
 
 .PHONY: norm normalize normalize-nb normalize-notebook
 
+####################
+# our notebooks now use format 4.0
+# to downgrade one can run this
+
+# jupyter nbconvert --to notebook --nbformat=2 --output=notebooks-v2/w1/w1-s07-c1-promenade.ipynb w1/w1-s07-c1-promenade.ipynb 
