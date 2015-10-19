@@ -74,9 +74,13 @@ In order to have all users find the `modules/` repo in their local dir, I wrote 
 
 ## Various customizations
 
-* First off, there seems to be some confusion between `~/.ipython` and `~/.jupyter`. I symlink them together for now
 
-* Then in order to install the keyboard shortcuts I had in place for developping flotpython:
+### filenames
+First off, there seems to be some confusion between `~/.ipython` and `~/.jupyter`. I symlink them together for now
+
+### shortcuts
+Then in order to install the keyboard shortcuts I had in place for developping flotpython:
+
   * I refactored older `devel_custom.js` to produce an extension 
   * stored in git under `nbextensions/author-keyboard.js`
   * that gets installed (manually) under `/home/bioinfo/.jupyter/nbextensions/author-keyboard.js`
@@ -87,11 +91,30 @@ In order to have all users find the `modules/` repo in their local dir, I wrote 
       "load_extensions": {"author-keyboard":true}
     })
   
-  
-* `custom.css` is for rendering, for now I just copied manually
+### rendering / CSS  
+`custom.css` is for rendering, for now I just copied manually
   * `flotpython/html/custom.css` 
   * onto `bioinfo@jupyter:.jupyter/`
   *  and in `.jupyter/profile_default/static/custom/custom.css` 
+
+### lightning
+I wanted to give a try to [Lightning viz](http://lightning-viz.org/) after I had seen [a sample notebook here](http://nbviewer.ipython.org/github/lightning-viz/lightning-example-notebooks/blob/master/plots/scatter.ipynb)
+
+    pip3 install lightning-python
+    
+I could do a bit with that; see the [test-lightning notebook](http://jupyter.pl.sophia.inria.fr/user/thierry/notebooks/flotbioinfo/tests/test-lightning.ipynb)
+
+Should be easy enough to [run our own server, instructions here](http://lightning-viz.org/setup/#deploy-server); keeping this aside for now
+
+### bokeh
+Made similar tests with [bokeh](http://nbviewer.ipython.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/02%20-%20plotting.ipynb)
+
+    pip3 install bokeh
+
+### spelling
+
+    apt-get install aspell libaspell-dev
+    pip3 install aspell-python-py3
 
 ## TODOs
 
