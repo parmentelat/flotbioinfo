@@ -1,25 +1,8 @@
 # MOOC « Bioinformatique : génomes et algorithmes »
 
-##
+J'essaie de résumer ici l'impact de mes ajouts sur la structure du cours, comparé à la V1.
 
-J'envisage d'ajouter également 2 compléments transverses, à voir où ça peut se caser
-
-* **?.?** Explication de comment utiliser les notebooks
-  * En tous cas on peut s'inspirer du notebook de python2
-
-* **?.?**  Rapide introduction à python
-  * Je ne sais pas encore combien de compléments il faut
-  * Au minimum, introduire quelque part
-
-* **-- OR --** on peut aussi envisager d'introduire les trucs au fur et à mesure
-
-Le mieux, il me semble, est de faire d'abord tous les algos pour voir quel est le meilleur angle pour cette intro
-
-## Liste des Suppléments
-
-J'essaie de résumer ici l'impact sur la structure du cours, comparé à la V1.
-
-Il s'agit donc principalement les algorithmes dont la liste avait été établie par François, mais j'ajoute également quelques chapitres d'intro à python, et aux notebooks eux-mêmes. 
+Il s'agit donc principalement des algorithmes dont la liste avait été établie par François. Mais j'ajoute également 2 compléments transverses, attachés à la séquence 1.4, pour introduire les choses; pour le reste, j'introduirai les concepts python au fur et à mesure.
 
 * **1.4** Introduction aux notebooks 
 
