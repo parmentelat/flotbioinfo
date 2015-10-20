@@ -1,10 +1,28 @@
-all: norm
+all: norm v2
 
-# work on one week at a time with FOCUS=W2
+# work on one week at a time with FOCUS=w1
 FOCUS     = $(wildcard w?)
+NOTEBOOKS = $(shell git ls-files $(FOCUS) | grep '\.ipynb$$')
 
 # for phony targets
 force:
+
+####################
+# our notebooks now use format 4.0
+# to downgrade one can run this
+
+V2DIR = nbformat2
+NOTEBOOKS_V2 = $(foreach notebook,$(NOTEBOOKS),$(V2DIR)/$(notebook))
+
+v2: $(NOTEBOOKS_V2)
+
+define v2_target
+$(V2DIR)/$(1):
+	@mkdir -p $(dir $(V2DIR)/$(1))
+	jupyter nbconvert --to notebook --nbformat=2 --output=$(V2DIR)/$(1) $(1)
+endef
+
+$(foreach notebook,$(NOTEBOOKS),$(eval $(call v2_target,$(notebook))))
 
 ####################
 # run nbnorm on all notebooks
@@ -17,27 +35,9 @@ NORM_OPTIONS = --author "Thierry Parmentelat" --author "François Rechenmann" --v
 
 # -type f : we need to skip symlinks
 normalize-nb normalize-notebook: force
-	git ls-files $(FOCUS) | grep '\.ipynb$$' | xargs $(NORM) $(NORM_OPTIONS)
+	 $(NORM) $(NORM_OPTIONS) $(NOTEBOOKS)
 
 .PHONY: norm normalize normalize-nb normalize-notebook
-
-####################
-# our notebooks now use format 4.0
-# to downgrade one can run this
-
-V2DIR = nbformat2
-NOTEBOOKS = $(shell git ls-files $(FOCUS) | grep '\.ipynb$$')
-NOTEBOOKS_V2 = $(foreach notebook,$(NOTEBOOKS),$(V2DIR)/$(notebook))
-
-v2: $(NOTEBOOKS_V2)
-
-define v2_target
-$(V2DIR)/$(1):
-	@mkdir -p $(dir $(V2DIR)/$(1))
-	jupyter nbconvert --to notebook --nbformat=2 --output=$(V2DIR)/$(1) $(1)
-endef
-
-$(foreach notebook,$(NOTEBOOKS),$(eval $(call v2_target,$(notebook))))
 
 #################### convenience, for debugging only
 # make +foo : prints the value of $(foo)
