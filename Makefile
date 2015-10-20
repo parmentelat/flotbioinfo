@@ -25,4 +25,26 @@ normalize-nb normalize-notebook: force
 # our notebooks now use format 4.0
 # to downgrade one can run this
 
-# jupyter nbconvert --to notebook --nbformat=2 --output=notebooks-v2/w1/w1-s07-c1-promenade.ipynb w1/w1-s07-c1-promenade.ipynb 
+V2DIR = nbformat2
+NOTEBOOKS = $(shell git ls-files $(FOCUS) | grep '\.ipynb$$')
+NOTEBOOKS_V2 = $(foreach notebook,$(NOTEBOOKS),$(V2DIR)/$(notebook))
+
+v2: $(NOTEBOOKS_V2)
+
+define v2_target
+$(V2DIR)/$(1):
+	@mkdir -p $(dir $(V2DIR)/$(1))
+	jupyter nbconvert --to notebook --nbformat=2 --output=$(V2DIR)/$(1) $(1)
+endef
+
+$(foreach notebook,$(NOTEBOOKS),$(eval $(call v2_target,$(notebook))))
+
+#################### convenience, for debugging only
+# make +foo : prints the value of $(foo)
+# make ++foo : idem but verbose, i.e. foo=$(foo)
+++%: varname=$(subst +,,$@)
+++%:
+	@echo "$(varname)=$($(varname))"
++%: varname=$(subst +,,$@)
++%:
+	@echo "$($(varname))"
