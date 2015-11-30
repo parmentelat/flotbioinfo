@@ -1,9 +1,10 @@
+#!/bin/bash
 #export PYTHONPATH=:/home/bioinfo/modules
 
 PID_FILE=/run/jupyterhub.pid
 RUN_CWD=/root/jupyterhub
 
-function start() {
+function start () {
     cd $RUN_CWD
     nohup jupyterhub >> /var/log/jupyterhub.log 2>&1 &
 }

@@ -2,7 +2,7 @@
 
 How I did set up the jupyter (ubuntu) VM in stupeflip.
 
-# prep on stupeflip
+# prep on host: `thermals`
 
     create-vm.sh -f vivid jupyter
     lce jupyter
@@ -43,11 +43,17 @@ For now this is mostly only a convenient way to show the notebooks in a running 
 
 ## configured `jupyterhub`
 
-See `jupyter/` subdir in git repo for
+* See `jupyter/` subdir in git repo for
 
-* initscript `jupyterhub.sh`
-* config file `/root/jupyterhub/jupyterhub_config.py` - primarily run on port 80
+  * initscript `jupyterhub.sh`
+  * config file `/root/jupyterhub/jupyterhub_config.py` - primarily run on port 80
 
+* **Starting service at boot-time**: added one line in `rc.local`
+
+#
+    [jupyter] ~ # grep jupyter /etc/rc.local
+    /root/jupyterhub/jupyterhub.sh start
+    
 ##  locale and UniCode
 
     # locale-gen en_US.UTF-8
