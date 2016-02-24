@@ -107,6 +107,7 @@ Then in order to install the keyboard shortcuts I had in place for developping f
 I wanted to give a try to [Lightning viz](http://lightning-viz.org/) after I had seen [a sample notebook here](http://nbviewer.ipython.org/github/lightning-viz/lightning-example-notebooks/blob/master/plots/scatter.ipynb)
 
     pip3 install lightning-python
+    pip install lightning-python
     
 I could do a bit with that; see the [test-lightning notebook](http://jupyter.pl.sophia.inria.fr/user/thierry/notebooks/flotbioinfo/tests/test-lightning.ipynb)
 
@@ -116,6 +117,8 @@ Should be easy enough to [run our own server, instructions here](http://lightnin
 Made similar tests with [bokeh](http://nbviewer.ipython.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/02%20-%20plotting.ipynb)
 
     pip3 install bokeh
+    pip install bokeh
+    
 
 ### spelling
 
