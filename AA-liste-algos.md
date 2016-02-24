@@ -1,4 +1,4 @@
-# MOOC « Bioinformatique : génomes et algorithmes »
+# MOOC «Bioinformatique : génomes et algorithmes»
 
 J'essaie de résumer ici l'impact de mes ajouts sur la structure du cours, comparé à la V1.
 
