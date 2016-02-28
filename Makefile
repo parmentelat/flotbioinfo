@@ -17,7 +17,7 @@ NOTEBOOKS_V2 = $(foreach notebook,$(NOTEBOOKS),$(V2DIR)/$(notebook))
 v2: $(NOTEBOOKS_V2)
 
 define v2_target
-$(V2DIR)/$(1):
+$(V2DIR)/$(1): $(1)
 	@mkdir -p $(dir $(V2DIR)/$(1))
 	jupyter nbconvert --to notebook --nbformat=2 --output=$(V2DIR)/$(1) $(1)
 endef
