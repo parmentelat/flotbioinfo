@@ -12,10 +12,16 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 * **1.4** Quelques notions de base de python
 
  Super rapide car je compte introduire les choses au fur et à mesure, mais il me faut quand même un tout petit peu de matière avant de commencer.
-    * les chaines de caracteres et `for`
-    * les listes pour dessiner
+    * ~~`print()` -- **ABOUT THAT** introduire python2 et 3, et ``from __future__ import print_function__``~~
+    * ~~nombres~~ 
+    * les chaînes de caractères
+    * `for`
+    * les listes
+    * `for` sur une liste
+    * `def`
+    * mutable - pas mutable - passage d'une liste à une fonction
     * les tuples et l'affectation a,b = (1, 2)
-    * print()
+    * enumerate vs range
 
 * **1.5** Comptage des nucléotides : nombre de A, de C, de G, de T, nombre total et calcul des fréquences
 
