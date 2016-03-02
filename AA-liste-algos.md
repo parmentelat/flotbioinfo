@@ -4,30 +4,27 @@ J'essaie de résumer ici l'impact de mes ajouts sur la structure du cours, compa
 
 Il s'agit donc principalement des algorithmes dont la liste avait été établie par François. Mais j'ajoute également 2 compléments transverses, attachés à la séquence 1.4, pour introduire les choses; pour le reste, j'introduirai les concepts python au fur et à mesure.
 
-* **1.4** Introduction aux notebooks 
-
-  * Voir avec Jean-Marc s'il pense qu'on peut mettre la vidéo de Python2 telle quelle ou bien ?
-  * Je compte reprendre un notebook que j'avais rédigé pour python2, et idéalement en faire une version totalement neutre par rapport au MOOC pour réutilisation possible le cas échéant.
+* ~~**1.4** Introduction aux notebooks~~
  
-* **1.4** Quelques notions de base de python
+* ~~**1.4** Quelques notions de base de python~~
 
- Super rapide car je compte introduire les choses au fur et à mesure, mais il me faut quand même un tout petit peu de matière avant de commencer.
-    * ~~`print()` -- **ABOUT THAT** introduire python2 et 3, et ``from __future__ import print_function__``~~
-    * ~~nombres~~ 
-    * les chaînes de caractères
-    * `for`
-    * les listes
-    * `for` sur une liste
-    * `def`
-    * mutable - pas mutable - passage d'une liste à une fonction
+  Super rapide car je compte introduire les choses au fur et à mesure, mais il me faut quand même un tout petit peu de matière avant de commencer. Restera peut-être à ajouter:
+    * mutable / pas mutable - passage d'une liste à une fonction
     * les tuples et l'affectation a,b = (1, 2)
     * enumerate vs range
 
-* **1.5** Comptage des nucléotides : nombre de A, de C, de G, de T, nombre total et calcul des fréquences
+* ~~**1.5** Comptage des nucléotides~~
 
-* Promenade sur l’ADN (DNA walk) : 
-  * **1.7** tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré ;
-  * **1.8** tracé « compressé » : un segment tous les n segments élémentaires
+  nombre de A, de C, de G, de T, nombre total et calcul des fréquences
+
+* *ONGOING* **1.7** DNA walk
+
+  tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré. Objectifs secondaires:
+    *  être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
+    *  et pour ça voir si on peut utiliser d'autres librairies
+
+* **1.8** ditto mais tracé « compressé » 
+  * un segment tous les n segments élémentaires
 
 * Comptage des nucléotides dans une fenêtre, glissante et recouvrante, parcourant la séquence, calcul des valeurs du ratio G/C au sein de chaque fenêtre et affichage de la courbe d’évolution de ce ratio le long de la séquence
 
