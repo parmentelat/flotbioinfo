@@ -4,6 +4,12 @@ J'essaie de résumer ici l'impact de mes ajouts sur la structure du cours, compa
 
 Il s'agit donc principalement des algorithmes dont la liste avait été établie par François. Mais j'ajoute également 2 compléments transverses, attachés à la séquence 1.4, pour introduire les choses; pour le reste, j'introduirai les concepts python au fur et à mesure.
 
+* ***ADDITION*** il serait souhaitable de caser quelque part 
+
+  * un mot sur comment se procurer des échantillons d'ADN; google 'NCBI' -> http://www.ncbi.nlm.nih.gov/
+  * comment lire un fichier de ce genre pour appliquer les algos du cours
+  * parler de `scikit-bio` ?
+
 * ~~**1.4** Introduction aux notebooks~~
  
 * ~~**1.4** Quelques notions de base de python~~
@@ -23,20 +29,29 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
     *  être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
     *  et pour ça voir si on peut utiliser d'autres librairies
 
-* **1.8** ditto mais tracé « compressé » 
+* **1.9** ditto mais tracé « compressé » 
   * un segment tous les n segments élémentaires
+  * si possible reproduire le résultat de la vidéo - en attente de l'échantillon d'entrée
 
-* Comptage des nucléotides dans une fenêtre, glissante et recouvrante, parcourant la séquence, calcul des valeurs du ratio G/C au sein de chaque fenêtre et affichage de la courbe d’évolution de ce ratio le long de la séquence
+* **1.10** Comptage des nucléotides dans une fenêtre, glissante et recouvrante
 
-* Transcription d’une séquence d’ADN en séquence d’ARN
+  Parcourant la séquence, calcul des valeurs du ratio G/C au sein de chaque fenêtre et affichage de la courbe d’évolution de ce ratio le long de la séquence
 
-* Recherche dans la table du code génétique d’un triplet et renvoi de l’acide aminé correspondant : plusieurs versions selon l’implémentation de la table
+* **2.2** Transcription d’une séquence d’ADN en séquence d’ARN
+
+* **2.5** Traduction triplet -> AA v1 *à confirmer*
+
+  * Recherche dans la table du code génétique d’un triplet et renvoi de l’acide aminé correspondant; algo pédestre
+
+* **2.7** Traduction triplet -> AA v2 - index calculé
+
+* **2.8** Traduction triplet -> AA v3 ? - utiliser un dictionnaire
 
 * Traduction d’une séquence de nucléotides en une séquence d’acides aminés (protéine)
 
-* Recherche d’un triplet quelconque dans une séquence d’ADN
+* **3.1** Recherche d’un triplet quelconque dans une séquence d’ADN
 
-* Recherche du prochain triplet Start/Stop dans une séquence à partir d’une position donnée
+* **3.3** Recherche du prochain triplet Start/Stop dans une séquence à partir d’une position donnée
 
 * Identification de régions codantes sur un brin et une phase : deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
 
@@ -44,18 +59,18 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 
 * Identification de toutes les régions codantes, sur les 3 phases et sur le brin complémentaire
 
-* Algorithme naïf de recherche d’un motif dans une séquence
+* **3.6** Algorithme naïf de recherche d’un motif dans une séquence
 
-* Recherche de motifs, algorithme de Boyer-Moore
+* **3.6** Recherche de motifs, algorithme de Boyer-Moore
 
 * Confirmation et rectification (position du Start) des prédictions de régions codantes par la recherche des motifs RBS (site de fixation du ribosome)
 
-* Calcul de la distance de Hamming entre 2 séquences (nombre de nucléotides différents)
+* **4.3** Calcul de la distance de Hamming entre 2 séquences (nombre de nucléotides différents)
 
 * Algorithme de Needleman et Wunsch :
-  *	version récursive
-  * version itérative
+  *	 **4.8** version récursive
+  * **4.9** version itérative
 
-* Remplissage du tableau des distances entre n séquences prises 2 à 2
+* **5.3** Remplissage du tableau des distances entre n séquences prises 2 à 2
 
-* Algorithme UPGMA de reconstruction d’arbre phylogénétique
+* **5.4** Algorithme UPGMA de reconstruction d’arbre phylogénétique
