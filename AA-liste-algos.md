@@ -29,7 +29,7 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
     *  être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
     *  et pour ça voir si on peut utiliser d'autres librairies
 
-* **1.9** ditto mais tracé « compressé » 
+* ~~**1.9** ditto mais tracé « compressé »~~
   * un segment tous les n segments élémentaires
   * si possible reproduire le résultat de la vidéo - en attente de l'échantillon d'entrée
 
