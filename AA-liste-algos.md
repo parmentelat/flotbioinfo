@@ -23,7 +23,7 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 
   nombre de A, de C, de G, de T, nombre total et calcul des fréquences
 
-* *ONGOING* **1.7** DNA walk
+* ~~**1.7** DNA walk~~
 
   tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré. Objectifs secondaires:
     *  être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
