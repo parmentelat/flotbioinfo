@@ -6,8 +6,7 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 
 * ***ADDITION*** il serait souhaitable de caser quelque part 
 
-  * un mot sur comment se procurer des échantillons d'ADN; google 'NCBI' -> http://www.ncbi.nlm.nih.gov/
-  * comment lire un fichier de ce genre pour appliquer les algos du cours
+  * ~~un mot sur comment se procurer des échantillons d'ADN; google 'NCBI' -> http://www.ncbi.nlm.nih.gov/, et comment lire un fichier de ce genre pour appliquer les algos du cours~~
   * parler de `scikit-bio` ?
 
 * ~~**1.4** Introduction aux notebooks~~
@@ -26,14 +25,14 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 * ~~**1.7** DNA walk~~
 
   tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré. Objectifs secondaires:
-    *  être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
-    *  et pour ça voir si on peut utiliser d'autres librairies
+    * être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
+    * et pour ça voir si on peut utiliser d'autres librairies
 
 * ~~**1.9** ditto mais tracé « compressé »~~
   * un segment tous les n segments élémentaires
   * si possible reproduire le résultat de la vidéo - en attente de l'échantillon d'entrée
 
-* **1.10** Comptage des nucléotides dans une fenêtre, glissante et recouvrante
+* ~~**1.10** Comptage des nucléotides dans une fenêtre, glissante et recouvrante~~
 
   Parcourant la séquence, calcul des valeurs du ratio G/C au sein de chaque fenêtre et affichage de la courbe d’évolution de ce ratio le long de la séquence
 
