@@ -36,7 +36,7 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 
   Parcourant la séquence, calcul des valeurs du ratio G/C au sein de chaque fenêtre et affichage de la courbe d’évolution de ce ratio le long de la séquence
 
-* **2.2** Transcription d’une séquence d’ADN en séquence d’ARN
+* ~~**2.2** Transcription d’une séquence d’ADN en séquence d’ARN~~
 
 * **2.5** Traduction triplet -> AA v1 *à confirmer*
 
