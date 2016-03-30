@@ -7,7 +7,7 @@ def normalize(input):
 
 x_small = 'GGACGT'
 
-small = 'GGACGGACGTTGAC'
+small = 'GGACGGACGTTGACT'
 
 medium = 'GTGGCCACCGTCCTCTCTGCCCCCGCCAAAATCACCAACCA'
 
