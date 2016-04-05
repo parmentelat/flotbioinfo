@@ -38,15 +38,14 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 
 * ~~**2.2** Transcription d’une séquence d’ADN en séquence d’ARN~~
 
-* **2.5** Traduction triplet -> AA v1 *à confirmer*
-
+* ***abandonné*** **2.5** Traduction triplet -> AA v1 
   * Recherche dans la table du code génétique d’un triplet et renvoi de l’acide aminé correspondant; algo pédestre
 
-* **2.7** Traduction triplet -> AA v2 - index calculé
+* ***abandonné*** **2.7** Traduction triplet -> AA v2 - index calculé
 
-* **2.8** Traduction triplet -> AA v3 ? - utiliser un dictionnaire
+* ***abandonné*** Traduction triplet -> AA v3 ? - utiliser un dictionnaire
 
-* Traduction d’une séquence de nucléotides en une séquence d’acides aminés (protéine)
+* ~~**2.8** Traduction d’une séquence de nucléotides en une séquence d’acides aminés (protéine)~~
 
 * **3.1** Recherche d’un triplet quelconque dans une séquence d’ADN
 
