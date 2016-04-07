@@ -47,9 +47,10 @@ Il s'agit donc principalement des algorithmes dont la liste avait été établie
 
 * ~~**2.8** Traduction d’une séquence de nucléotides en une séquence d’acides aminés (protéine)~~
 
-* **3.1** Recherche d’un triplet quelconque dans une séquence d’ADN
+* ***abandonné - groupé avec 3.3*** (was 3.1) Recherche d’un triplet quelconque dans une séquence d’ADN
 
-* **3.3** Recherche du prochain triplet Start/Stop dans une séquence à partir d’une position donnée
+* ~~**3.3** Recherche du prochain triplet Start/Stop dans une séquence à partir d’une position donnée~~
+  * OK - avec bonne intro sur les regexps
 
 * Identification de régions codantes sur un brin et une phase : deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
 
