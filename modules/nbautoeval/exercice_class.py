@@ -4,8 +4,8 @@ from __future__ import print_function
 
 from IPython.display import HTML
 
-from nbautoeval.log import log_correction
-from nbautoeval.rendering import (
+from .log import log_correction
+from .rendering import (
     Table, TableRow, TableCell, CellLegend,
     font_style, header_font_style,
     ok_style, ko_style,

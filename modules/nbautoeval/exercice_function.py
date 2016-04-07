@@ -7,8 +7,8 @@ from __future__ import print_function
 
 from IPython.display import HTML
 
-from nbautoeval.log import log_correction
-from nbautoeval.rendering import (
+from .log import log_correction
+from .rendering import (
     Table, TableRow, TableCell, CellLegend,
     font_style, header_font_style,
     ok_style, ko_style,
@@ -187,9 +187,10 @@ class ExerciceFunction(object):
         html = table.header()
 
         title1 = "Arguments" if not self.render_name else "Appel"
+        # souci avec l'accent de 'Résultat Attendu'
         html += TableRow(style=header_font_style,
                          cells = [ TableCell (CellLegend(x), tag='th', style=center_cell_style)
-                                   for x in (title1, 'Résultat Attendu') ]).html()
+                                   for x in (title1, 'Resultat Attendu') ]).html()
         for dataset in self.datasets[:how_many_samples]:
             sample_dataset = dataset.clone(self.copy_mode)
             if self.render_name:
@@ -205,69 +206,3 @@ class ExerciceFunction(object):
         html += table.footer()
         return HTML(html)
 
-##############################
-import re
-
-class ExerciceRegexp(ExerciceFunction):
-    """
-    With these exercices the students are asked to write a regexp
-    which is transformed into a function that essentially
-    takes an input string and returns a boolean
-    that says if the *whole* string matches or not
-    """
-    @staticmethod
-    def regexp_to_solution(regexp):
-        def solution(string):
-            match = re.match(regexp, string)
-            if not match:       return False
-            else:               return match.group(0) == string
-        return solution
-
-    def __init__(self, name, regexp, inputs, *args, **keywords):
-        solution = ExerciceRegexp.regexp_to_solution(regexp)
-        ExerciceFunction.__init__(self, solution, inputs, *args, **keywords)
-        self.regexp = regexp
-        self.name = name
-        self.render_name = False
-
-    def correction(self, student_regexp):
-        student_solution = ExerciceRegexp.regexp_to_solution(student_regexp)
-        return ExerciceFunction.correction(self, student_solution)
-
-##############################
-class ExerciceRegexpGroups(ExerciceFunction):
-    """
-    With these exercices the students are asked to write a regexp
-    with a set of specified named groups
-    a list of these groups needs to be passed to construct the object
-
-    the regexp is then transformed into a function that again
-    takes an input string and either a list of tuples 
-    (groupname, found_substring) 
-    or None if no match occurs
-    """
-
-    @staticmethod
-    def extract_group(match, group):
-        try:        return group, match.group(group)
-        except:     return group, "Undefined"
-
-    @staticmethod
-    def regexp_to_solution(regexp, groups):
-        def solution(string):
-            match = re.match(regexp, string)
-            return match and [ExerciceRegexpGroups.extract_group(match, group)
-                              for group in groups]
-        return solution
-
-    def __init__(self, name, regexp, groups, inputs, *args, **keywords):
-        solution = ExerciceRegexpGroups.regexp_to_solution(regexp, groups)
-        ExerciceFunction.__init__(self, solution, inputs, *args, **keywords)
-        self.name = name
-        self.regexp = regexp
-        self.groups = groups
-        self.render_name = False
-
-    def correction(self, student_regexp):
-        student_solution = ExerciceRegexpGroups.regexp_to_solution(student_regexp, self.groups)
-        return ExerciceFunction.correction(self, student_solution)

@@ -3,6 +3,7 @@ from nbautoeval.exercice_function import ExerciceFunction
 from nbautoeval.args import Args
 
 nucleotides = 'CAGT'
+
 # @BEG@ name=pourcentages
 def pourcentages(adn):
     "calcule des pourcentages de CAGT dans un adn"
@@ -16,13 +17,13 @@ def pourcentages(adn):
 def pourcentages_ko():
     return { p:0.25 for p in nucleotides }
 
-from samples import slides
+from samples import slide_1_6
 
 inputs_pourcentages = [
     Args('ACGTACGA'),
     Args('ACGTACGATCGATCGATGCTCGTTGCTCGTAGCGCT'),
     # la séquence du transparent 1.6
-    Args(slides['1.6']),
+    Args(slide_1_6),
 ]
 
 exo_pourcentages = ExerciceFunction(pourcentages, inputs_pourcentages,
