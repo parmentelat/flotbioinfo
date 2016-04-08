@@ -62,7 +62,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
   * et avec regexps
   * *vérifier la complétude avec les besoins du multiphase*
 
-* ***TODO*** `w3/w3-s04-c1-sequence-complementaire`
+* ***TODO*** `w3/w3-s04-c1-sequence-complementaire.ipynb`
 > Calcul de la séquence complémentaire inverse
 
 * ***TODO*** `w3/w3-s04-c2-regions-codantes-v2.ipynb` 
@@ -78,19 +78,24 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 ****
 ### w4
 
-* **4.3** Calcul de la distance de Hamming entre 2 séquences (nombre de nucléotides différents)
+* ***TODO*** `w4/w4-s03-c1-distance-hamming.ipynb`
+> Calcul de la distance de Hamming entre 2 séquences (nombre de nucléotides différents)
 
-* Algorithme de Needleman et Wunsch :
-  *	 **4.8** version récursive
-  * **4.9** version itérative
+* ***TODO*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
+> Algorithme de Needleman et Wunsch : version récursive
+* ***TODO*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
+> Algorithme de Needleman et Wunsch : version itérative
 
 ****
 ### w5
 
-* **5.3** Remplissage du tableau des distances entre n séquences prises 2 à 2
+* ***TODO*** `w5/w5-s03-c1-tableau-distances.ipynb`
+> Remplissage du tableau des distances entre n séquences prises 2 à 2
 
-* **5.4** Algorithme UPGMA de reconstruction d’arbre phylogénétique
+* ***TODO*** `w5/w5-s04-c1-upgma.ipynb`
+> Algorithme UPGMA de reconstruction d’arbre phylogénétique
 
+====
 
 ====
 ##### Ajouts possibles
