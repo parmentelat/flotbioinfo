@@ -83,6 +83,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 
 * ***TODO*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
 > Algorithme de Needleman et Wunsch : version récursive
+
 * ***TODO*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
 > Algorithme de Needleman et Wunsch : version itérative
 
@@ -95,9 +96,9 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***TODO*** `w5/w5-s04-c1-upgma.ipynb`
 > Algorithme UPGMA de reconstruction d’arbre phylogénétique
 
-====
+****
 
-====
+****
 ##### Ajouts possibles
 
 * exercices auto corrigés - à voir où - commencer par une (regexp?)
