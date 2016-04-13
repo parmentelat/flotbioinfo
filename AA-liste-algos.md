@@ -56,7 +56,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
   Identification de régions codantes sur un brin et une phase : deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
 
 * **TOCHECK** `w3/w3-s03-c1-recherche-chaine.ipynb`
-> **3.3** Recherches dans une chaine
+> Recherches dans une chaine
 
   * recherche 'naive' 
   * et avec regexps
