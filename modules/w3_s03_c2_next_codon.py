@@ -24,7 +24,7 @@ from __future__ import division
 # In[ ]:
 
 # l'opérateur % permet de calculer le modulo 
-print("le reste de la division de 25 par 10 vaut", 25 % 10)
+###OFF print("le reste de la division de 25 par 10 vaut", 25 % 10)
 
 
 # ### L'instruction `continue`
@@ -35,12 +35,12 @@ print("le reste de la division de 25 par 10 vaut", 25 % 10)
 
 # un exemple d'instruction `continue`
 # une boucle englobante qui itère sur les nombres de 0 à 4
-for i in range(5):
-    # mais on ignore les multiples de 3
-    # et dans ce cas on passe directement au i suivant
-    if i % 3 == 0:
-        continue
-    print("traitement de", i)    
+###OFF for i in range(5):
+###OFF     # mais on ignore les multiples de 3
+###OFF     # et dans ce cas on passe directement au i suivant
+###OFF     if i % 3 == 0:
+###OFF         continue
+###OFF     print("traitement de", i)    
 
 
 # ### `next_start_codon` et la recherche d'un triplet sur une phase
@@ -89,16 +89,16 @@ def next_start_codon(adn, indice):
 
 # In[ ]:
 
-adn = "AUGCGAUGUAUGCGUGCAGCUGCUAGCUCGUAAUGUCGUCAUGGAUCAUCGAUCAUGG"
-
-for phase in 0, 1, 2:
-    print("PHASE", phase)
-    next = phase
-    while next is not None:
-        next = next_start_codon(adn, next)
-        if next is not None:
-            print("trouvé à l'indice", next, adn[next:next+3])
-            next += 3
+###OFF adn = "AUGCGAUGUAUGCGUGCAGCUGCUAGCUCGUAAUGUCGUCAUGGAUCAUCGAUCAUGG"
+###OFF 
+###OFF for phase in 0, 1, 2:
+###OFF     print("PHASE", phase)
+###OFF     next = phase
+###OFF     while next is not None:
+###OFF         next = next_start_codon(adn, next)
+###OFF         if next is not None:
+###OFF             print("trouvé à l'indice", next, adn[next:next+3])
+###OFF             next += 3
 
 
 # ##### `next_stop_codon` et la recherche de 3 triplets sur une phase
@@ -146,13 +146,13 @@ def next_stop_codon(adn, indice):
 
 # In[ ]:
 
-print(adn)
-for phase in 0, 1, 2:
-    print("PHASE", phase)
-    next = phase
-    while next is not None:
-        next = next_stop_codon(adn, next)
-        if next is not None:
-            print("trouvé à l'indice", next, adn[next:next+3])
-            next += 3
+###OFF print(adn)
+###OFF for phase in 0, 1, 2:
+###OFF     print("PHASE", phase)
+###OFF     next = phase
+###OFF     while next is not None:
+###OFF         next = next_stop_codon(adn, next)
+###OFF         if next is not None:
+###OFF             print("trouvé à l'indice", next, adn[next:next+3])
+###OFF             next += 3
 
