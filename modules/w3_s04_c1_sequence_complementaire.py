@@ -91,14 +91,14 @@ def complementaire_inversee(adn):
 
 # In[ ]:
 
-from samples import slide_complement
-print(slide_complement)
+from samples import echantillon_semaine3_sequence4
+print(echantillon_semaine3_sequence4)
 
 
 # In[ ]:
 
 # avec lequel on obtient alors le résultat attendu
-complementaire_inversee(slide_complement)
+complementaire_inversee(echantillon_semaine3_sequence4)
 
 
 # Ou encore sur un exemple un peu plus court&nbsp;:
