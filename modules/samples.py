@@ -46,3 +46,17 @@ echantillon_semaine1_sequence7 = normalize("""
     CGACTTCCTGCGCGAAGGTTTCCACGTTGTCACGCCGAACAA""")
 
 echantillon_semaine3_sequence4 = 'ACCGTCTGGTACCCGTATTGCTTATGGCATATA'
+
+#################### préchargés pour efficacité
+with open("data/borrelia-CP000013") as f:
+    borrelia = normalize(f.read())
+
+with open("data/synechosystis-BA000022") as f:
+    synechosystis = normalize(f.read())
+
+with open("data/subtilis-CP010053") as f:
+    subtilis = normalize(f.read())
+
+    
+
+    

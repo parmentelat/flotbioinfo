@@ -1,14 +1,23 @@
 # a simple and rustic download & parse tool
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function
 
 import urllib2
 
-def download(key):
+def download(key, verbose=False):
     
     url = 'http://www.ebi.ac.uk/ena/data/view/{key}&display=text&download=txt&filename={key}.txt'\
           .format(key=key)
 
     response = urllib2.urlopen(url)
     text = response.read()
+    if 'not supported' in text:
+        print("WARNING: url=", url)
+        print("  a retourné", text)
+    if verbose:
+        print("url=", url)
+        print("text=", text)
     return text
 
 def valid_contents(line):

@@ -24,9 +24,9 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * **OK** `w1/w1-s07-c1-promenade.ipynb` 
 > Promenade le long de l'ADN
 
-  tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré. Objectifs secondaires:
-    * être capable de jouer sur l'échelle pour accomoder des séquences de longueur variable
-    * et pour ça voir si on peut utiliser d'autres librairies
+  * tracé type « tortue » dans les 4 directions nord, sud, est, ouest en fonction du nucléotide rencontré. Objectifs secondaires:
+  * exemple: borrelia burdorferi aka CP000013
+  * contrexemple: synechosystis aka BA000022
 
 * **OK** `w1/w1-s09-c1-promenade-resume.ipynb` 
 > Promenade revisitée
@@ -55,6 +55,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
  
   * deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
   * on utilise ici telles quelles les fonctions `next_start_codon` et `next_stop_codon` qui seraont vues dans 332.
+  * exemple bacillus subtilis aka CP010053
 
 * **OK** `w3/w3-s03-c1-recherche-chaine.ipynb`
 > Recherches dans une chaine - techniques de base en python
