@@ -51,12 +51,13 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 ### w3
 
 * ***TODO*** `w3/w3-s02-c1-regions-codantes-v1.ipynb`
-> Recherche de régions codantes sur une phase
+> Identification de régions codantes sur un brin et une phase 
+ 
+  * deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
+  * on utilise ici telles quelles les fonctions `next_start_codon` et `next_stop_codon` qui seraont vues dans 332.
 
-  Identification de régions codantes sur un brin et une phase : deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
-
-* **TOCHECK** `w3/w3-s03-c1-recherche-chaine.ipynb`
-> Recherches dans une chaine
+* **OK** `w3/w3-s03-c1-recherche-chaine.ipynb`
+> Recherches dans une chaine - techniques de base en python
 
   * recherche 'naive' 
   * et avec regexps
