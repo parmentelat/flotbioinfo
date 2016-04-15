@@ -50,7 +50,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 ****
 ### w3
 
-* ***ONGOING*** `w3/w3-s02-c1-regions-codantes-v1.ipynb`
+* ***OK*** `w3/w3-s02-c1-regions-codantes-v1.ipynb`
 > Identification de régions codantes sur un brin et une phase 
  
   * deux stops consécutifs en phase, taille > 300, Start le « plus à gauche », enregistrement dans un tableau (position de début, position de fin)
@@ -63,10 +63,10 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
   * recherche 'naive' 
   * et avec regexps
 
-* **ONGOING** `w3/w3-s03-c2-next-codon.ipynb`
+* **OK** `w3/w3-s03-c2-next-codon.ipynb`
 > Recherche de codons START et STOP 
 
-* ***TODO*** `w3/w3-s04-c1-sequence-complementaire.ipynb`
+* ***OK*** `w3/w3-s04-c1-sequence-complementaire.ipynb`
 > Calcul de la séquence complémentaire inverse
 
 * ***TODO*** `w3/w3-s04-c2-regions-codantes-v2.ipynb` 
