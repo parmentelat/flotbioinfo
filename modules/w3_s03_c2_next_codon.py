@@ -5,7 +5,7 @@
 
 # # `next_start_codon` et `next_stop_codon`
 
-# Souvenons-nous à présent de l'algorithme de recherche de régions codantes que nous avons vu dans la séquence précédente, et dans lequel nous avions eu besoin de deux fonctions accessoires pour rechercher les codons Start et Stop. Voici le code que nous avions utilisé à ce moment-là, et qui utilise les concepts que nous venons de voir dans le complément sur la recherche de chaines en python.
+# Souvenons-nous à présent de l'algorithme de recherche de régions codantes que nous avons vu dans la séquence précédente, et dans lequel nous avions eu besoin de deux fonctions accessoires pour rechercher les codons **Start** et **Stop**. Voici le code que nous avions utilisé à ce moment-là, et qui utilise les concepts que nous venons de voir dans le complément sur la recherche de chaines en python.
 
 # Mais n'oublions pas notre cellule usuelle&nbsp;:
 
@@ -29,7 +29,7 @@ from __future__ import division
 
 # ### L'instruction `continue`
 
-# Notre code utilise également l'instruction `continue`, qui permet d'interrompre le code de boucle courant (ici nous sommes dans un `while`) et de passer directement à l'itération suivante de la boucle.
+# Notre code utilise également l'instruction `continue`, qui permet d'interrompre le code de boucle courant (ici nous sommes dans un `for`) et de passer directement à l'itération suivante de la boucle.
 
 # In[ ]:
 
@@ -43,6 +43,12 @@ from __future__ import division
 ###OFF     print("traitement de", i)    
 
 
+# ### Recherche dans l'ADN ou dans l'ARN
+
+# Dans les vidéos on a vu les valeurs des codons **Start** et **Stop** comme contenant des `U` - et pas de `T`. C'est bien sûr équivalent de chercher `AUG` dans un ARN ou `ATG` dans l'ADN correspondant.
+# 
+# Pour des raisons pratiques, puisque les brins de matériel génétique dont nous partons sont presque toujours de l'ARN, aussi nous allons ici chercher des codons contenant des `T` et non des `U`.
+
 # ### `next_start_codon` et la recherche d'un triplet sur une phase
 
 # Nous pouvons à présent écrire le code de `next_start_codon`&nbsp;:
@@ -50,7 +56,7 @@ from __future__ import division
 # In[ ]:
 
 # rappelons quel est le codon START
-start_codon = "AUG"
+start_codon = "ATG"
 
 
 # In[ ]:
@@ -89,8 +95,8 @@ def next_start_codon(adn, indice):
 
 # In[ ]:
 
-###OFF adn = "AUGCGAUGUAUGCGUGCAGCUGCUAGCUCGUAAUGUCGUCAUGGAUCAUCGAUCAUGG"
-###OFF 
+adn = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
+
 ###OFF for phase in 0, 1, 2:
 ###OFF     print("PHASE", phase)
 ###OFF     next = phase
@@ -109,8 +115,8 @@ def next_start_codon(adn, indice):
 
 import re
 # on rappelle la définition de re_stop
-# pour chercher 'UAA' ou 'UAG' ou 'UGA', on utilise le ou logique |
-re_stop = re.compile("UAA|UAG|UGA")
+# pour chercher 'TAA' ou 'TAG' ou 'TGA', on utilise le ou logique |
+re_stop = re.compile("TAA|TAG|TGA")
 
 
 # In[ ]:
