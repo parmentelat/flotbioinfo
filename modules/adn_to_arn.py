@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-def traduction_adn_arn(adn):
+def translate_adn_to_arn(adn):
     """"
     Traduit un brin d'ADN en ARN en remplaçant toutes
     les occurrences de T en U

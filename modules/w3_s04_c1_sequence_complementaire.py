@@ -69,16 +69,16 @@ complement['A']
 
 # In[33]:
 
-def complementaire_inversee(adn):
+def reverse_complement(adn):
     """
     Calcule la séquence complémentaire (A->T, etc...) et
     inversée (les premiers sont les derniers)
     d'un brin d'ADN
     """
     # la liste des nucléotides complémentaires
-    liste = [ complement[nucleo] for nucleo in adn]
+    complements = [ complement[nucleo] for nucleo in adn]
     # la même liste mais inversée
-    liste = reversed(liste)
+    reverse = reversed(complements)
     # il ne reste plus qu'à retransformer en chaine
-    return "".join(liste)
+    return "".join(reverse)
 

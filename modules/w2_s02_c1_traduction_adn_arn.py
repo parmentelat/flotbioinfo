@@ -25,8 +25,8 @@ from __future__ import division
 ###OFF ch1 = "abc"
 ###OFF ch2 = "def"
 ###OFF # en faisant + on obtient la concaténation des deux chaines
-###OFF bout_a_bout = ch1 + ch2
-###OFF print(bout_a_bout)
+###OFF concatenated = ch1 + ch2
+###OFF print(concatenated)
 
 
 # In[ ]:
@@ -40,18 +40,18 @@ from __future__ import division
 # In[ ]:
 
 ###OFF # en partant d'une chaine
-###OFF chaine = "ATGC"
+###OFF string = "ATGC"
 ###OFF # on peut facilement y ajouter à la fin
-###OFF chaine += "CGAT"
-###OFF # maintenant chaine contient les deux morceaux 
-###OFF print(chaine)
+###OFF string += "CGAT"
+###OFF # maintenant string contient les deux morceaux 
+###OFF print(string)
 
 
 # Grâce à cette opération de concaténation sur les chaines on peut procéder simplement comme ceci&nbsp;:
 
 # In[ ]:
 
-def traduction_adn_arn(adn):
+def translate_adn_to_arn(adn):
     """"
     Traduit un brin d'ADN en ARN en remplaçant toutes
     les occurrences de T en U
@@ -71,7 +71,7 @@ def traduction_adn_arn(adn):
 # In[ ]:
 
 ###OFF adn = "ATTCGATCGGGTATTACG"
-###OFF arn = traduction_adn_arn(adn)
+###OFF arn = translate_adn_to_arn(adn)
 ###OFF print(arn)
 
 
@@ -87,13 +87,13 @@ def traduction_adn_arn(adn):
 ###OFF import timeit
 ###OFF 
 ###OFF # un échantillon un peu gros : 400 000 nucléotides
-###OFF gros_adn = 10**5 * 'ACGT' 
+###OFF big_adn = 10**5 * 'ACGT' 
 ###OFF 
-###OFF print(timeit.timeit('traduction_adn_arn(gros_adn)', 
-###OFF                     "from __main__ import traduction_adn_arn, gros_adn",
+###OFF print(timeit.timeit('translate_adn_to_arn(big_adn)', 
+###OFF                     "from __main__ import translate_adn_to_arn, big_adn",
 ###OFF                     number=10))
 
 
-# Ce qui dans mon environnement imprime de l'ordre de `0.5` (en secondes), qui nous dit que pour évaluer 10 fois (c'est le propos de `number=10`) l'appel à `traduction_adn_arn(gros_adn)`, l'interpréteur prend environ une demi-seconde.
+# Ce qui dans mon environnement imprime de l'ordre de `0.5` (en secondes), qui nous dit que pour évaluer 10 fois (c'est le propos de `number=10`) l'appel à `translate_adn_to_arn(big_adn)`, l'interpréteur prend environ une demi-seconde.
 # 
-# Le deuxième argument à `timeit`, dans notre cas `from __main__ import traduction_adn_arn, gros_adn`, permet de rendre les deux identificateurs dont nous avons besoin (la fonction et l'échantillon) visibles à `timeit`. 
+# Le deuxième argument à `timeit`, dans notre cas `from __main__ import translate_adn_to_arn, big_adn`, permet de rendre les deux identificateurs dont nous avons besoin (la fonction et l'échantillon) visibles à `timeit`. 

@@ -61,20 +61,20 @@ next_start_codon("CGTACGATG", 1)
 # In[5]:
 
 # une boucle apparemment sans fin
-compteur = 1
+###OFF counter = 1
 ###OFF while True:
 ###OFF     # on mulitplie le compteur par 2
-###OFF     compteur += compteur
+###OFF     counter += counter
 ###OFF     # une fois arrivé à 100 on sort de la boucle
-###OFF     if compteur >= 100:
+###OFF     if counter >= 100:
 ###OFF         break
-###OFF     print("compteur = ", compteur)
+###OFF     print("compteur = ", counter)
 ###OFF print("après la boucle")
 
 
 # ### L'algorithme à proprement parler
 
-# Une fois tout ceci acquis, nous pouvons écrire une fonction `regions_codantes_une_phase` qui travaille sur un brin d'ADN, et qui va suivre la logique décrite dans la vidéo. Notre fonction va prendre les arguments suivants&nbsp;:
+# Une fois tout ceci acquis, nous pouvons écrire une fonction `coding_regions_one_phase` qui travaille sur un brin d'ADN, et qui va suivre la logique décrite dans la vidéo. Notre fonction va prendre les arguments suivants&nbsp;:
 #   * le brin d'ADN
 #   * la phase, exprimée comme un entier 0, 1 ou 2
 #   * la taille minimale entre 2 deux **Stop**; ce dernier argument sera optionnel, lorsqu'il est omis on prendra comme valeur par défaut 300, comme dans le cours.
@@ -86,7 +86,7 @@ compteur = 1
 # recherche de gènes selon l'heuristique décrite dans la vidéo
 # sur une phase seulement
 # avec par défaut une longueur minimale de 300
-def regions_codantes_une_phase(adn, phase, longueur_minimale=300):
+def coding_regions_one_phase(adn, phase, minimal_length=300):
     # on initialise index à la phase; avec next_start_codon
     # et next_stop_codon on reste toujours sur la même phase
     index = phase
@@ -109,7 +109,7 @@ def regions_codantes_une_phase(adn, phase, longueur_minimale=300):
             if not stop2:
                 return genes
             # s'il est assez loin, on peut sortir de la boucle interne
-            if stop2 - stop1 >= longueur_minimale:
+            if stop2 - stop1 >= minimal_length:
                 break
             # sinon il faut continuer à chercher un STOP
             # pour passer au stop suivant et ne pas retomber a nouveau sur stop2
@@ -124,8 +124,8 @@ def regions_codantes_une_phase(adn, phase, longueur_minimale=300):
         # tout d'abord rien ne nous dit qu'il y a un codon START entre start1 et start2
         # et même s'il y en a un, rien de nous dit qu'on obtient un gêne assez long
         # donc on reteste la longueur du gêne trouvé et on ne garde que ceux 
-        # qui sont assez longs - par rapport à longueur_minimale
-        if stop2 - start < longueur_minimale:
+        # qui sont assez longs - par rapport à minimal_length
+        if stop2 - start < minimal_length:
             pass
         else:
             # cette fois on a trouvé un genes, on l'ajoute dans les résultats
