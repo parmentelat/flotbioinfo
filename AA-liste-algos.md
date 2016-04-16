@@ -85,7 +85,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 ****
 ### w4
 
-* ***TODO*** `w4/w4-s03-c1-distance-hamming.ipynb`
+* ***OK*** `w4/w4-s03-c1-distance-hamming.ipynb`
 > Calcul de la distance de Hamming entre 2 séquences (nombre de nucléotides différents)
 
 * ***TODO*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
