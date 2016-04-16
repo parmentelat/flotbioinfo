@@ -62,14 +62,14 @@ next_start_codon("CGTACGATG", 1)
 
 # une boucle apparemment sans fin
 compteur = 1
-while True:
-    # on mulitplie le compteur par 2
-    compteur += compteur
-    # une fois arrivé à 100 on sort de la boucle
-    if compteur >= 100:
-        break
-    print("compteur = ", compteur)
-print("après la boucle")
+###OFF while True:
+###OFF     # on mulitplie le compteur par 2
+###OFF     compteur += compteur
+###OFF     # une fois arrivé à 100 on sort de la boucle
+###OFF     if compteur >= 100:
+###OFF         break
+###OFF     print("compteur = ", compteur)
+###OFF print("après la boucle")
 
 
 # ### L'algorithme à proprement parler
@@ -134,77 +134,3 @@ def regions_codantes_une_phase(adn, phase, longueur_minimale=300):
         index = stop2 + 3
 
 
-# ### Sur un exemple réel
-
-# Nous allons utiliser comme ADN source celui de [Bacillus Subtilis](http://www.ebi.ac.uk/ena/data/view/CP010053) (clé `CP010053`), que pour des raisons de taille nous avons déjà importé&nbsp;:
-
-# In[7]:
-
-from samples import subtilis
-print("subtilis contient {} bases".format(len(subtilis)))
-
-
-# In[8]:
-
-# calculons les genes sur la phase 0 avec cet algorithme
-genes = regions_codantes_une_phase(subtilis, 0)
-print("On a trouvé {} genes sur la phase 0".format(len(genes)))
-
-
-# ### Quelques statistiques (optionnel)
-
-# Pour ceux que cela pourrait intéresser, et qui ont quelques connaissances en python, voici quelques statistiques sur ce résultat. 
-
-# In[9]:
-
-# un tableau avec toutes les longueurs de genes
-tableau_longueurs = [ y-x for x,y in genes ]
-
-# la longueur totale de tous les genes trouvés
-longueur_totale = sum ( tableau_longueurs )
-# la longueur moyenne des genes
-longueur_moyenne = longueur_totale / len(genes)
-print('longueur moyenne des genes', longueur_moyenne)
-
-
-# In[10]:
-
-# les tailles minimale et maximale
-longueur_min = min ( tableau_longueurs )
-longueur_max = max ( tableau_longueurs )
-print("min = {}, max = {}".format(longueur_min, longueur_max))
-
-
-# In[11]:
-
-# pourcentage de la région codante par rapport à la longueur totale
-print("Pourcentage de région codante", longueur_totale/len(subtilis))
-
-
-# ##### Un histogramme des longueurs
-
-# On peut simplement représenter la répartition des longueurs des gênes trouvés de la façon suivante. À nouveau ceci vous est donné surtout pour éveiller votre curiosité, n'hésitez pas à partager vos idées pour améliorer la présentation&nbsp;:
-
-# In[12]:
-
-# on importe matplotlib
-import matplotlib.pyplot as plt
-# pour que les figures apparaissent dans le notebook
-get_ipython().magic('matplotlib inline')
-
-# la taille utile pour les courbes
-import pylab
-pylab.rcParams['figure.figsize'] = 8., 8.
-
-
-# In[13]:
-
-# un histogramme de la répartition des longueurs 
-plt.hist(tableau_longueurs, bins=75)
-plt.axis([300, 7700, 0, 400])
-plt.show()
-
-
-# ### Remarque de style
-
-# Signalons enfin pour les programmeurs puristes que de très nombreuses améliorations sont possibles, tant sur le style que sur les performances. On aurait pu par exemple se définir ici une classe `Gene` et retourner une liste de `Gene` plutot qu'une liste de listes; ou a minima utiliser des tuples plutôt que des listes. Je vous laisse ces améliorations à titre d'exercice, mais notre parti-pris pédagogique est de nous concentrer au maximum sur les algorithmes et d'utiliser python le plus simplement possible.
