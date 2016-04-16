@@ -95,6 +95,7 @@ def regions_codantes_une_phase(adn, phase, longueur_minimale=300):
     genes = []
     # la boucle 
     while True:      # boucle principale
+        # on cherche le premier STOP à partir de index
         stop1 = next_stop_codon(adn, index)
         # s'il n'y a plus de stop, on a fini
         if not stop1:
@@ -130,7 +131,7 @@ def regions_codantes_une_phase(adn, phase, longueur_minimale=300):
             # cette fois on a trouvé un genes, on l'ajoute dans les résultats
             genes.append( [start, stop2] )
         # on peut passer à l'ORF suivant
-        index = stop2
+        index = stop2 + 3
 
 
 # ### Sur un exemple réel
