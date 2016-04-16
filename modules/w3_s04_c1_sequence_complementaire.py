@@ -7,7 +7,7 @@
 
 # Commençons comme d'habitude avec ceci&nbsp;:
 
-# In[ ]:
+# In[28]:
 
 # la formule magique pour utiliser print() en python2 et python3
 from __future__ import print_function
@@ -15,58 +15,59 @@ from __future__ import print_function
 from __future__ import division
 
 
-# ##### Fonction `complementaire` sur un seul nucléotide
+# ### Le  `complement` d'un nucléotide
 
-# Pour calculer la séquence complémentaire inverse, nous commençons par nous définir une fonction `complementaire` qui renvoie le nucléotide complémentaire&nbsp;:
+# Pour calculer la séquence complémentaire inverse, nous commençons par nous définir un dictionnaire `complement` qui renvoie le nucléotide complémentaire&nbsp;:
 
-# In[ ]:
+# In[39]:
 
-# le nucleotide complementaire
-def complementaire(nucleo):
-    if   nucleo == 'A': return 'T'
-    elif nucleo == 'C': return 'G'
-    elif nucleo == 'G': return 'C'
-    elif nucleo == 'T': return 'A'
+# le nucléotide complémentaire
+complement = {
+    'A' : 'T',
+    'C' : 'G',
+    'G' : 'C',
+    'T' : 'A',
+}
 
 
 # Ainsi par exemple&nbsp;:
 
-# In[ ]:
+# In[40]:
 
-complementaire('A')
+complement['A']
 
 
-# ##### La logique de notre calcul
+# ### La logique de notre calcul
 
 # On va maintenant pouvoir calculer la séquence complémentaire inverse. Pour cela on va
-# * créer une **liste** de nucléotides qui va accumuler le résultat; l'avantage d'une liste est qu'on peut y insérer des éléments où on veut, et donc en partculier au début;
-# * balayer la séquence de départ dans le sens "normal", mais insérer le nucléotide complémentaire **au début** de la liste de résultats, de façon à inverser le résultat par rapport à la chaine;
-# * enfin traduire la liste en chaine; on pourrait sans doute se passer de cette étape d'ailleurs, car pour l'essentiel ce qu'on peut faire sur une chaine on peut le faire sur une liste de caractères, mais bon soyons homogènes.
+# * calculer la **liste** des nucléotides complément, dans l'ordre initial, à l'aide d'une compréhension;
+# * retourner la liste en place grâce à la fonction python `reversed`;
+# * enfin traduire cette liste en chaine.
 
-# ##### Digression: traduire une liste en chaine
+# ### Digression: traduire une liste en chaine
 
 # Pour cette dernière étape, nous allons utiliser une astuce très fréquente dans les programmes python. Il s'agit de la méthode `join` qui est disponible sur les chaines. Voyons quelques exemples&nbsp;:
 
-# In[ ]:
+# In[31]:
 
 # la méthode join sur une chaine
 "+".join(["spam", "eggs", "bacon"])
 
 
-# Comme on le voit, la chaine sur laquelle on appelle (on dit aussi on envoie) la méthode `join` est utilisée pour lier (joindre) les différents morceaux. 
+# Comme on le voit, la chaine sur laquelle on envoie la méthode `join` est utilisée pour lier (joindre) les différents morceaux, d'où le nom de cette méthode.
 # 
-# Aussi par extension si on envoie `join` à une chaine vide, on réalise *de facto* une conversion de liste en chaine, comme ceci&nbsp;:
+# Aussi par extension, si on envoie `join` à une **chaine vide**, on réalise *de facto* une conversion de liste en chaine, comme ceci&nbsp;:
 
-# In[ ]:
+# In[41]:
 
 "".join(["s", "p", "a", "m"])
 
 
-# ##### Tout ensemble
+# ### Tout ensemble
 
 # Tous ces morceaux mis bout à bout nous donnent le code suivant pour calculer la chaine complémentaire inversée d'un brin d'ADN&nbsp;:
 
-# In[ ]:
+# In[33]:
 
 def complementaire_inversee(adn):
     """
@@ -74,36 +75,10 @@ def complementaire_inversee(adn):
     inversée (les premiers sont les derniers)
     d'un brin d'ADN
     """
-    # la liste des nucléotides résultats
-    liste_resultat = []
-    # on parcourt l'entrée dans le *bon* sens
-    for nucleo in adn:
-        # mais en insérant les bases **au début**
-        # du résultat ce qui permet l'inversion
-        liste_resultat.insert(0, complementaire(nucleo))
-    # il nous reste à transformer la liste en chaine
-    return "".join(liste_resultat)
-
-
-# ##### Exemples
-
-# En partant de l'exemple utilisé dans la vidéo et les transparents&nbsp;:
-
-# In[ ]:
-
-from samples import echantillon_semaine3_sequence4
-print(echantillon_semaine3_sequence4)
-
-
-# In[ ]:
-
-# avec lequel on obtient alors le résultat attendu
-complementaire_inversee(echantillon_semaine3_sequence4)
-
-
-# Ou encore sur un exemple un peu plus court&nbsp;:
-
-# In[ ]:
-
-complementaire_inversee("TAGCATCG")
+    # la liste des nucléotides complémentaires
+    liste = [ complement[nucleo] for nucleo in adn]
+    # la même liste mais inversée
+    liste = reversed(liste)
+    # il ne reste plus qu'à retransformer en chaine
+    return "".join(liste)
 

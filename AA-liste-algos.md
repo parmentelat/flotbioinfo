@@ -70,7 +70,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w3/w3-s04-c1-sequence-complementaire.ipynb`
 > Calcul de la séquence complémentaire inverse
 
-* ***TODO*** `w3/w3-s04-c2-regions-codantes-v2.ipynb` 
+* ***OK*** `w3/w3-s04-c2-regions-codantes-v2.ipynb` 
 > Recherche de régions codantes sur trois phases et brin complémentaire
 
   Identification de toutes les régions codantes, sur les 3 phases et sur le brin complémentaire
