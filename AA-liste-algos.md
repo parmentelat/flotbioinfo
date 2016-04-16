@@ -75,10 +75,12 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 
   Identification de toutes les régions codantes, sur les 3 phases et sur le brin complémentaire
 
-* ***TODO*** `w3/w3-s05-c1-recalage-rbs.ipynb`
+* ***WAITING*** `w3/w3-s05-c1-recalage-rbs.ipynb`
 > Recalage par recherche des RBS
  
-  Confirmation et rectification (position du Start) des prédictions de régions codantes par la recherche des motifs RBS (site de fixation du ribosome)
+  * Confirmation et rectification (position du Start) des prédictions de régions codantes par la recherche des motifs RBS (site de fixation du ribosome)
+  * Version dérivée de `regions_codante_une_phase` écrite
+  * mais j'ai besoin de données de la part de François (un ARN et le RBS qui va avec)
 
 ****
 ### w4
