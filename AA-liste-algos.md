@@ -79,7 +79,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 > Recalage par recherche des RBS
  
   * Confirmation et rectification (position du Start) des prédictions de régions codantes par la recherche des motifs RBS (site de fixation du ribosome)
-  * Version dérivée de `regions_codante_une_phase` écrite
+  * Version dérivée de `coding_regions_one_phase` écrite
   * mais j'ai besoin de données de la part de François (un ARN et le RBS qui va avec)
 
 ****
@@ -88,7 +88,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w4/w4-s03-c1-distance-hamming.ipynb`
 > Calcul de la distance de Hamming entre 2 séquences (nombre de nucléotides différents)
 
-* ***TODO*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
+* ***OK*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
 > Algorithme de Needleman et Wunsch : version récursive
 
 * ***TODO*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
