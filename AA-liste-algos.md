@@ -91,7 +91,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
 > Algorithme de Needleman et Wunsch : version récursive
 
-* ***TODO*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
+* ***ONGOING*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
 > Algorithme de Needleman et Wunsch : version itérative
 
 ****

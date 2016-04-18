@@ -47,6 +47,8 @@ sample_week1_sequence7 = normalize("""
 
 sample_week3_sequence4 = 'ACCGTCTGGTACCCGTATTGCTTATGGCATATA'
 
+sample_week4_sequence9 = sample_week1_sequence7[:841]
+
 #################### préchargés pour efficacité
 with open("data/borrelia-CP000013") as f:
     borrelia = normalize(f.read())
