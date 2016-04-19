@@ -81,6 +81,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
   * Confirmation et rectification (position du Start) des prédictions de régions codantes par la recherche des motifs RBS (site de fixation du ribosome)
   * Version dérivée de `coding_regions_one_phase` écrite
   * mais j'ai besoin de données de la part de François (un ARN et le RBS qui va avec)
+  * susceptible d'être tout simplement supprimé si on ne trouve pas de données pertinentes.
 
 ****
 ### w4
@@ -103,11 +104,10 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w5/w5-s03-c1-tableau-distances.ipynb`
 > Remplissage du tableau des distances entre n séquences prises 2 à 2
 
-* ***ONGOING*** `w5/w5-s04-c1-upgma.ipynb`
+* ***OK*** `w5/w5-s04-c1-upgma.ipynb`
 > Algorithme UPGMA de reconstruction d’arbre phylogénétique
 
-  * code OK
-  * reste à rédiger
+  * Données en attente si possible
 
 ****
 
