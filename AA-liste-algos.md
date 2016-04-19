@@ -103,8 +103,11 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w5/w5-s03-c1-tableau-distances.ipynb`
 > Remplissage du tableau des distances entre n séquences prises 2 à 2
 
-* ***TODO*** `w5/w5-s04-c1-upgma.ipynb`
+* ***ONGOING*** `w5/w5-s04-c1-upgma.ipynb`
 > Algorithme UPGMA de reconstruction d’arbre phylogénétique
+
+  * code OK
+  * reste à rédiger
 
 ****
 
