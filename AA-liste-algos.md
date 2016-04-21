@@ -75,7 +75,7 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 
   Identification de toutes les régions codantes, sur les 3 phases et sur le brin complémentaire
 
-* ***WAITING*** `w3/w3-s05-c1-recalage-rbs.ipynb`
+* ***TOCHECK*** `w3/w3-s05-c1-recalage-rbs.ipynb`
 > Recalage par recherche des RBS
  
   * Confirmation et rectification (position du Start) des prédictions de régions codantes par la recherche des motifs RBS (site de fixation du ribosome)
@@ -104,10 +104,10 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w5/w5-s03-c1-tableau-distances.ipynb`
 > Remplissage du tableau des distances entre n séquences prises 2 à 2
 
-* ***OK*** `w5/w5-s04-c1-upgma.ipynb`
+* ***TOCHECK*** `w5/w5-s04-c1-upgma.ipynb`
 > Algorithme UPGMA de reconstruction d’arbre phylogénétique
 
-  * Données en attente si possible
+  * Ce serait bien d'ajouter des données réalistes 
 
 ****
 
