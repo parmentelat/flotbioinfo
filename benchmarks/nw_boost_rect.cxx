@@ -35,7 +35,7 @@ inline int min (int m1, int m2, int m3) {
 }
 inline void phase1 (matrix<int>& m, const std::string& adn1, const std::string& adn2) {
   for (int c = 0; c <=  m.size1()+m.size2()+1; ++c) {
-    for (int i = std::max<int>(0, c-m.size2()); i <= std::min<int>(c, m.size1()-1); ++i) {
+    for (int i = std::max<int>(0, c-m.size2()+1); i <= std::min<int>(c, m.size1()-1); ++i) {
       int j = c - i;
 	int i1 = i-1;
 	int j1 = j-1;
