@@ -17,13 +17,13 @@ def pourcentages(adn):
 def pourcentages_ko():
     return { p:0.25 for p in nucleotides }
 
-from samples import echantillon_semaine1_sequence6
+from samples import sample_week1_sequence6 as slide_1_6
 
 inputs_pourcentages = [
     Args('ACGTACGA'),
     Args('ACGTACGATCGATCGATGCTCGTTGCTCGTAGCGCT'),
     # la séquence du transparent 1.6
-    Args(echantillon_semaine1_sequence6),
+    Args(slide_1_6),
 ]
 
 exo_pourcentages = ExerciceFunction(pourcentages, inputs_pourcentages,
