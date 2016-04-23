@@ -1,9 +1,12 @@
-nw_c_like:
-	g++ -std=c++11 -DNDEBUG -DBOOST_UBLAS_NDEBUG -O2 -o nw_c_like nw_c_like.cxx
+BINS = nw_c_like nw_boost nw_boost_rect
 
-nw_boost:
-	g++ -std=c++11 -DNDEBUG -DBOOST_UBLAS_NDEBUG -O2 -o nw_boost nw_boost.cxx
+all: $(BINS)
+clean:
+	rm -f $(BINS)
 
-nw_boost_rect:
-	g++ -std=c++11 -DNDEBUG -DBOOST_UBLAS_NDEBUG -O2 -o nw_boost_rect nw_boost_rect.cxx
+define cxx_target
+$(1):
+	g++ -std=c++11 -DNDEBUG -DBOOST_UBLAS_NDEBUG -O2 -o $(1) $(1).cxx
+endef
 
+$(foreach bin,$(BINS),$(eval $(call cxx_target,$(bin))))
