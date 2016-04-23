@@ -31,3 +31,6 @@ endef
 
 $(foreach bin,$(BINS),$(eval $(call cxx_target,$(bin))))
 $(foreach py,$(PYS),$(eval $(call py_time_target,$(py))))
+
+nw_c: nw_c.c
+	gcc -DNDEBUG -O2 -o nw_c nw_c.c
