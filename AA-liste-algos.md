@@ -92,11 +92,12 @@ Ce document liste les ajouts *notebooks* sur la structure du cours, comparé à 
 * ***OK*** `w4/w4-s08-c1-needleman-wunsh-rec.ipynb`
 > Algorithme de Needleman et Wunsch : version récursive
 
-* ***OK*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
+* ***TOCHECK*** `w4/w4-s09-c1-needleman-wunsh-iter.ipynb`
 > Algorithme de Needleman et Wunsch : version itérative
 
   * phase1 - calcul des coûts : OK
   * phase2 - OK même si rendu un peu rustique
+  * il faut ajouter une digression sur les performances (200 x moins rapide que du C tou de même...)
 
 ****
 ### w5
