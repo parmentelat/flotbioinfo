@@ -19,11 +19,3 @@ Il me semble que l’algorithme de prédiction de gène est incorrect : une fois
 15000 gènes sur les 6 phases de B. subtilis, c’est 4 fois trop.
 
 > oui en effet on considère des ORF avec possiblement un ou même des STOP dedans; mais si on ne fait pas ça comment on va pouvoir trouver des acides aminés correspondants au STOP ? En tous cas il y a clairement un truc que je n'ai pas compris..
-
-# W4
-
-
-
-## Séquence 4.9
-
-Remarquez que le la valeur qui nous intéresse au final,
