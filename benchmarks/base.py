@@ -11,7 +11,7 @@ except:
 # just storing something once in each cell
 def naive(n):
     beg = time.time()
-    costs = [ [0 for i in range(n)] for j in range(n) ]
+    costs = [ [0 for i in myrange(n)] for j in myrange(n) ]
     mid = time.time()
     for i in myrange(n):
         for j in myrange(n):
@@ -22,7 +22,7 @@ def naive(n):
 # do same thing but essentially do a write and a read
 def naive2(n):
     beg = time.time()
-    costs = [ [0 for i in range(n)] for j in range(n) ]
+    costs = [ [0 for i in myrange(n)] for j in myrange(n) ]
     mid = time.time()
     for i in myrange(n):
         for j in myrange(n):
@@ -34,7 +34,7 @@ def naive2(n):
 # one write and 2 reads
 def naive3(n):
     beg = time.time()
-    costs = [ [0 for i in range(n)] for j in range(n) ]
+    costs = [ [0 for i in myrange(n)] for j in myrange(n) ]
     mid = time.time()
     for i in myrange(n):
         for j in myrange(n):
@@ -43,10 +43,31 @@ def naive3(n):
     end = time.time()
     print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
                 
+
+def naive3_comp(n):
+    beg = time.time()
+    costs = [ [0 for i in myrange(n)] for j in myrange(n) ]
+    mid = time.time()
+    costs2 = [costs[i][j-1] + costs[i][j-2] for i in myrange(n) for j in myrange(n)]
+
+    end = time.time()
+    print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+    
+def naive_flat(n):
+    beg = time.time()
+    costs = [ 0 for i in myrange(n*n)]
+    mid = time.time()
+    for i in myrange(n):
+        for j in myrange(n):
+            costs[i*n+j] = i+j
+    end = time.time()
+    print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+    
+
 import numpy as np
 
 # same as naive using np.array
-def npnaive(n):
+def naive_np(n):
     beg = time.time()
     costs = np.zeros( (n, n))
     mid = time.time()
@@ -56,7 +77,7 @@ def npnaive(n):
     end = time.time()
     print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
-def npnaive2(n):
+def naive2_np(n):
     beg = time.time()
     costs = np.zeros( (n, n))
     mid = time.time()
@@ -67,7 +88,7 @@ def npnaive2(n):
     end = time.time()
     print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
-def npnaive3(n):
+def naive3_np(n):
     beg = time.time()
     costs = np.zeros( (n, n))
     mid = time.time()
@@ -79,9 +100,7 @@ def npnaive3(n):
     print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
 
-
-
-    # ditto but with a dict on tuples
+# ditto but with a dict on tuples
 # this is unexpectedly slooow - like 4 times slower
 def dict_tuple(n):
     beg = time.time()
