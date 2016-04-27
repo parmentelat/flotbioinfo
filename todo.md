@@ -8,8 +8,7 @@ Eviter de donner l’exemple d’une séquence retrouvée avec le mot clé « br
 > je voulais juste leur montrer qu'ils pouvaient aller chercher des trucs aux-mêmes, mais avec d'autres données (en + il me semble que borrelia c'est très gros) 
 
  
-## Semaine 3
-
+# W3
 
 ## Séquence 2
 
@@ -19,3 +18,9 @@ Il me semble que l’algorithme de prédiction de gène est incorrect : une fois
 15000 gènes sur les 6 phases de B. subtilis, c’est 4 fois trop.
 
 > oui en effet on considère des ORF avec possiblement un ou même des STOP dedans; mais si on ne fait pas ça comment on va pouvoir trouver des acides aminés correspondants au STOP ? En tous cas il y a clairement un truc que je n'ai pas compris..
+
+# W4
+
+## Séquence 9
+
+Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
