@@ -4,37 +4,9 @@
 
 # W1
 
-# Sur le fond
-
-Eviter de donner l’exemple d’une séquence retrouvée avec le mot clé « breast cancer », mais un nom de bactérie. Le mieux est d’appliquer l’algorithme sur Borrelia burdorferi, car on devrait voir la courbe de l’évolution du ration passer de valeurs négatives à des valeurs positives au point de rebroussement visible sur le DNA walk
-
-> le truc c'est que j'ai déjà montré Borrelia juste avant dans ce notebook.
-> je voulais juste leur montrer qu'ils pouvaient aller chercher des trucs aux-mêmes, mais avec d'autres données (en + il me semble que borrelia c'est très gros) 
-
- 
- **TODO** 1.7 : montrer fetch sur le + petit des 2 exemples
-supprimer breast cancer + pacific...
- 
 **TODO** 1.10 : reprendre borrelia comme seul exemple
 on doit voir d'abord en dessous, puis au dessus
  
-**TODO** robustifier le fetch ou l'enlever; 
-en attente d'une confirmation de Benjamin sur un firewall éventuel
-
-1-7-1 et 1-10-1
-
-Christelle: J'ai trouvé borrelia burgdorferi : 
-http://www.ebi.ac.uk/ena/data/view/ACL34321
-
-* CP001273
-longueur 24159 
-
-
-* ACL34321
-fetch OK mais seulement 2031 nucleotides
-le fetch depuis la plateforme ne fonctionne pas par contre; firewall ?
-
-
  
 # W3
 

@@ -5,11 +5,22 @@ from __future__ import print_function
 
 import urllib2
 
-def download(key, verbose=False):
-    
-    url = 'http://www.ebi.ac.uk/ena/data/view/{key}&display=text&download=txt&filename={key}.txt'\
-          .format(key=key)
+"""
+A simplistic tool for fetching ADN sequences at ebi.ac.uk
+"""
 
+def ebi_url(key):
+    """
+    default strategy to map a key to a URL
+    """
+    return 'http://www.ebi.ac.uk/ena/data/view/{key}&display=text&download=txt&filename={key}.txt'\
+        .format(key=key)
+
+def download(url, verbose=False):
+    """
+    the actual download - discards obvious failures
+    """
+    
     response = urllib2.urlopen(url)
     text = response.read()
     if 'not supported' in text:
@@ -21,9 +32,15 @@ def download(key, verbose=False):
     return text
 
 def valid_contents(line):
+    """
+    keeps only the contents that has nucleotides
+    """  
     return "".join( [ x.upper() for x in line if x.lower() in ('c', 'a', 'g', 't')])
 
 def parse(text):
+    """
+    rough parsing of the .txt format
+    """
     in_sequence = False
     result = ""
     for line in text.split("\n"):
@@ -37,4 +54,20 @@ def parse(text):
     return result
         
 def fetch(key):
-    return parse(download(key))
+    """
+    one-stop shopping
+    """
+    url = ebi_url(key)
+    try:
+        return parse(download(url))
+    except Exception as e:
+        print("Impossible d'aller chercher la clé {}".format(key))
+        return str(e)
+
+####################
+# how to display our own source code
+import inspect
+def list_module(module):
+    lines, lineno = inspect.getsourcelines(module)
+    for line in lines:
+        print(line, end="")
