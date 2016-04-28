@@ -64,41 +64,45 @@ def naive_flat(n):
     print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
 
-import numpy as np
+# my pypy does not have numpy
+try:
+    import numpy as np
 
-# same as naive using np.array
-def naive_np(n):
-    beg = time.time()
-    costs = np.zeros( (n, n))
-    mid = time.time()
-    for i in myrange(n):
-        for j in myrange(n):
-            costs[i, j] = i+j
-    end = time.time()
-    print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+    # same as naive using np.array
+    def naive_np(n):
+        beg = time.time()
+        costs = np.zeros( (n, n))
+        mid = time.time()
+        for i in myrange(n):
+            for j in myrange(n):
+                costs[i, j] = i+j
+        end = time.time()
+        print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
-def naive2_np(n):
-    beg = time.time()
-    costs = np.zeros( (n, n))
-    mid = time.time()
-    for i in myrange(n):
-        for j in myrange(n):
-            if j > 0:
-                costs[i, j] = costs[i, j-1] + i
-    end = time.time()
-    print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+        def naive2_np(n):
+            beg = time.time()
+            costs = np.zeros( (n, n))
+            mid = time.time()
+            for i in myrange(n):
+                for j in myrange(n):
+                    if j > 0:
+                        costs[i, j] = costs[i, j-1] + i
+            end = time.time()
+            print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
-def naive3_np(n):
-    beg = time.time()
-    costs = np.zeros( (n, n))
-    mid = time.time()
-    for i in myrange(n):
-        for j in myrange(n):
-            if j > 0:
-                costs[i, j] = costs[i, j-1] - costs[i, j-1] + i
-    end = time.time()
-    print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
-    
+            def naive3_np(n):
+                beg = time.time()
+                costs = np.zeros( (n, n))
+                mid = time.time()
+                for i in myrange(n):
+                    for j in myrange(n):
+                        if j > 0:
+                            costs[i, j] = costs[i, j-1] - costs[i, j-1] + i
+                end = time.time()
+                print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+
+except:
+    pass
 
 # ditto but with a dict on tuples
 # this is unexpectedly slooow - like 4 times slower

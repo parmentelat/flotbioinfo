@@ -3,6 +3,8 @@ CXXBINS = nw_c_like nw_boost nw_boost_rect
 PYS = nw_naive nw_naive_xrange nw_dict_tuple
 BASE_PYS = naive naive2 naive3 naive3_comp naive_flat naive_np naive2_np naive3_np dict_tuple
 
+BASE_PYPYS = $(filter-out %_np,$(BASE_PYS))
+
 ##########
 BINS = $(CBINS) $(CXXBINS)
 
@@ -14,7 +16,7 @@ TIME_PYS = $(foreach py,$(PYS),$(py).time)
 TIMES += $(TIME_PYS)
 TIME_BASE_PYS = $(foreach py,$(BASE_PYS),base_$(py).time)
 TIMES += $(TIME_BASE_PYS)
-TIME_BASE_PYPYS = $(foreach py,$(BASE_PYS),base_$(py).timepy)
+TIME_BASE_PYPYS = $(foreach py,$(BASE_PYPYS),base_$(py).timepy)
 TIMES += $(TIME_BASE_PYPYS)
 TIME_BASE3_PYS = $(foreach py,$(BASE_PYS),base_$(py).time3)
 TIMES += $(TIME_BASE3_PYS)
@@ -71,3 +73,6 @@ $(foreach bin,$(CXXBINS),$(eval $(call cxx_target,$(bin))))
 $(foreach bin,$(CBINS) $(CXXBINS),$(eval $(call bin_time_target,$(bin))))
 $(foreach py,$(PYS),$(eval $(call py_time_target,$(py))))
 $(foreach py,$(BASE_PYS),$(eval $(call base_py_time_target,$(py))))
+
+foo:
+	@echo $(BASE_PYPYS)
