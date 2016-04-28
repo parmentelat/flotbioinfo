@@ -1,13 +1,3 @@
-# process
-
-**OK** Utiliser la machine de notebooks de prod et non plus connect
-
-# W1
-
-**TODO** 1.10 : reprendre borrelia comme seul exemple
-on doit voir d'abord en dessous, puis au dessus
- 
- 
 # W3
 
 ## Séquence 2
