@@ -19,6 +19,5 @@ Il me semble que l’algorithme de prédiction de gène est incorrect : une fois
 **TODO** Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
 
 # Exos
-**TODO** voir si on peut faire un ou deux des exos
-* W2 / exo 1
-* W3 / exo 1
+* **TODO** w2-e1-regexp.py : écrire une regexp correspondant à toutes les formes de la serine
+* **TODO** w3-e1-count-stop-codons.ipynb : écrire une fonction qui compte les codons STOP dans une séquence d'ADN
