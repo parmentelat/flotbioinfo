@@ -1,4 +1,17 @@
-# W3
+# À intégrer W3
+
+## regexp
+
+un notebook d'exercice `w3-e2-regexp-serine.ipynb` 
+
+***
+
+# Ongoing : exos
+
+* **TODO** w3-e1-count-stop-codons.ipynb : écrire une fonction qui compte les codons STOP dans une séquence d'ADN
+***
+
+# TODO W3
 
 ## Séquence 2
 
@@ -12,12 +25,9 @@ Il me semble que l’algorithme de prédiction de gène est incorrect : une fois
 **TODO** ne plus considérer les STOP 
 **TODO** publier nouveau nombre de prédictions
 
-# W4
+# TODO W4
 
 ## Séquence 9
 
 **TODO** Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
 
-# Exos
-* **TODO** w2-e1-regexp.py : écrire une regexp correspondant à toutes les formes de la serine
-* **TODO** w3-e1-count-stop-codons.ipynb : écrire une fonction qui compte les codons STOP dans une séquence d'ADN
