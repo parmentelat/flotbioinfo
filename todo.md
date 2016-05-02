@@ -1,8 +1,12 @@
 # À intégrer W3
 
+## recherches
+
+un notebook d'exercice à intégrer `w3/w3-e1-comptage-stop.ipynb`
+
 ## regexp
 
-un notebook d'exercice `w3-e2-regexp-serine.ipynb` 
+un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb` 
 
 ***
 
