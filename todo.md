@@ -2,17 +2,12 @@
 
 ## recherches
 
-un notebook d'exercice à intégrer `w3/w3-e1-comptage-stop.ipynb`
+un notebook d'exercice à intégrer `w3-e1-comptage-stop.ipynb`
 
 ## regexp
 
 un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb` 
 
-***
-
-# Ongoing : exos
-
-* **TODO** w3-e1-count-stop-codons.ipynb : écrire une fonction qui compte les codons STOP dans une séquence d'ADN
 ***
 
 # TODO W3
