@@ -20,7 +20,7 @@ au_moins_deux = "TA(TA)+"
 exo_au_moins_deux = ExerciceRegexp('au_moins_deux',
                                    au_moins_deux,
                                    [Args(x) for x in inputs],
-                                   match_otherwise_search = False,
+                                   match_mode = 'search',
                                    exemple_how_many = 8)
 au_moins_deux_ko = "TATA"
 

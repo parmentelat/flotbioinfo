@@ -14,39 +14,42 @@ class ExerciceRegexp(ExerciceFunction):
     that says if the *whole* string matches or not
     """
     @staticmethod
-    def regexp_to_solution(regexp, match_otherwise_search):
+    def regexp_to_solution(regexp, match_mode):
         def solution(string):
-            match = re.match(regexp, string) if match_otherwise_search \
-                    else re.search(regexp, string)
-            if not match:
-                return False
-            else:
-                # exo with match_otherwise_search display yes or no
-                if match_otherwise_search:
-                    return match.group(0) == string
-                # the other ones will show the beginning and end of match
+            if match_mode in ('match', 'search'):
+                if match_mode == 'match':
+                    match = re.match(regexp, string)
                 else:
-                    return match.span()
+                    match = re.search(regexp, string)
+                if not match:
+                    return False
+                else:
+                    return match.group(0) == string
+            # findall returns strings, while finditer returns match instances
+            elif match_mode == 'findall':
+                return re.findall(regexp, string)
+            elif match_mode == 'finditer':
+                return [ match.span() for match in re.finditer(regexp, string)]
         return solution
 
-    def __init__(self, name, regexp, inputs, match_otherwise_search=True, *args, **keywords):
+    def __init__(self, name, regexp, inputs, match_mode='match', *args, **keywords):
         """
         a regexp exercice is made with
         . a user-friendly name
         . a regexp string for the solution
         . a list of inputs on which to run the regexp
-        . match_otherwise_search is a boolean that says if we want to run `match` or `search`
+        . match_mode is either 'match', 'search' or 'findall' 
         . additional settings from ExerciceFunction
         """
-        solution = ExerciceRegexp.regexp_to_solution(regexp, match_otherwise_search)
+        solution = ExerciceRegexp.regexp_to_solution(regexp, match_mode)
         ExerciceFunction.__init__(self, solution, inputs, *args, **keywords)
         self.regexp = regexp
         self.name = name
-        self.match_otherwise_search = match_otherwise_search
+        self.match_mode = match_mode
         self.render_name = False
 
     def correction(self, student_regexp):
-        student_solution = ExerciceRegexp.regexp_to_solution(student_regexp, self.match_otherwise_search)
+        student_solution = ExerciceRegexp.regexp_to_solution(student_regexp, self.match_mode)
         return ExerciceFunction.correction(self, student_solution)
 
 ##############################
@@ -68,22 +71,38 @@ class ExerciceRegexpGroups(ExerciceFunction):
         except:     return group, "Undefined"
 
     @staticmethod
-    # match_otherwise_search mode not implemented yet
-    def regexp_to_solution(regexp, groups):
+    def regexp_to_solution(regexp, groups, match_mode):
+        if match_mode != 'match':
+            # only tested with 'match' so far
+            print("WARNING: ExerciceRegexpGroups : match_mode {} not yet implemented"
+                  .format(match_mode))
         def solution(string):
-            match = re.match(regexp, string)
-            return match and [ExerciceRegexpGroups.extract_group(match, group)
-                              for group in groups]
+            if match_mode in ('match', 'search'):
+                if match_mode == 'match':
+                    match = re.match(regexp, string)
+                else:
+                    match = re.search(regexp, string)
+                return match and [ExerciceRegexpGroups.extract_group(match, group)
+                                  for group in groups]
+            # findall returns strings, while finditer returns match instances
+            elif match_mode == 'findall':
+                return re.findall(regexp, string)
+            elif match_mode == 'finditer':
+                matches = re.finditer(regexp, string)
+                return [ [ExerciceRegexpGroups.extract_group(match, group)
+                          for group in groups] for match in matches ]
         return solution
 
-    def __init__(self, name, regexp, groups, inputs, *args, **keywords):
-        solution = ExerciceRegexpGroups.regexp_to_solution(regexp, groups)
+    def __init__(self, name, regexp, groups, inputs, match_mode='match', *args, **keywords):
+        solution = ExerciceRegexpGroups.regexp_to_solution(regexp, groups, self.match_mode)
         ExerciceFunction.__init__(self, solution, inputs, *args, **keywords)
         self.name = name
         self.regexp = regexp
         self.groups = groups
+        self.match_mode = match_mode
         self.render_name = False
 
     def correction(self, student_regexp):
-        student_solution = ExerciceRegexpGroups.regexp_to_solution(student_regexp, self.groups)
+        student_solution = ExerciceRegexpGroups.regexp_to_solution(student_regexp, self.groups,
+                                                                   match_mode=self.match_mode)
         return ExerciceFunction.correction(self, student_solution)
