@@ -2,15 +2,15 @@
 
 ## recherches
 
-un notebook d'exercice à intégrer `w3-e1-comptage-stop.ipynb`
+**DONE** un notebook d'exercice à intégrer `w3-e1-comptage-stop.ipynb`
 
 ## regexp
 
-un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb` 
+**DONE** un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb` 
 
 ***
 
-# DONE W3
+# W3
 
 ## Séquence 2
 
@@ -19,13 +19,18 @@ un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb`
 * avant: 15000 gènes sur les 6 phases de B. subtilis, c’est 4 fois trop
 * maintenant:  j'en trouve à présent 4723, ce qui semble déjà + correct
 
-# TODO W3
+## Séquence 5
 
-l'algorithme de recalage est une variante de la recherche de régions codantes; il faut le mettre à jour 
+**DONE** l'algorithme de recalage est une variante de la recherche de régions codantes; il faut le mettre à jour 
 
-# TODO W4
+## Séquence 5
+
+**TODO** Manque toujours les données pour illustrer le RBS
+
+# W4
 
 ## Séquence 9
 
 **TODO** Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
 
+J'hésite encore sur les meilleures modalités car ce notebook est déjà très copieux. Pourquoi ne pas le couper en deux...
