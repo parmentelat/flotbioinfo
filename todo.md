@@ -36,7 +36,7 @@
 
 ## W1-S10
 
-* bon réglage fenêtre glissante = 5000, 100
-* axe du zéro en rouge ?
+* **DONE** bon réglage fenêtre glissante = 5000, 100
+* **DONE** axe du zéro en rouge 
 
 
