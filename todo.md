@@ -1,36 +1,42 @@
-# À intégrer W3
+# À intégrer (-> Christelle)
 
-## recherches
+## exo w3 recherches
 
 **DONE** un notebook d'exercice à intégrer `w3-e1-comptage-stop.ipynb`
 
-## regexp
+## exo w3 regexp
 
 **DONE** un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb` 
 
+## W3-S9
+
+**TODO** couper en deux le notebook N&W itératif
+
+* nouveau notebook `w3-s09-c2-approfondissements`
+* dictionaire x tuple
+* et benchmarks Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
+
+***
+***
 ***
 
-# W3
+# Données manquantes ( -> François)
 
-## Séquence 2
-
-**DONE** L'algo de recherche de régions codantes est revisité pour tenir compte des remarques de François.
-
-* avant: 15000 gènes sur les 6 phases de B. subtilis, c’est 4 fois trop
-* maintenant:  j'en trouve à présent 4723, ce qui semble déjà + correct
-
-## Séquence 5
-
-**DONE** l'algorithme de recalage est une variante de la recherche de régions codantes; il faut le mettre à jour 
-
-## Séquence 5
-
+## W3-S5 
 **TODO** Manque toujours les données pour illustrer le RBS
 
-# W4
+## W5-S4
+**TODO** Manque toujours les données pour illustrer le UPGMA
 
-## Séquence 9
+***
+***
+***
 
-**TODO** Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
+# Retouches
 
-J'hésite encore sur les meilleures modalités car ce notebook est déjà très copieux. Pourquoi ne pas le couper en deux...
+## W1-S10
+
+* bon réglage fenêtre glissante = 5000, 100
+* axe du zéro en rouge ?
+
+
