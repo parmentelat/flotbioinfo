@@ -51,3 +51,20 @@ Will compute a variety of files named `*.time` :
  * The ones ending in `.pypy.time` correspond to the python code excuted with `pypy`
 
 # Outline
+
+* Measured on a macbook pro
+* Cython approx. **120 times** slower than C++
+* pypy approx. **5 times** slower than C++
+* the optimization about scanning the rectangle accurately rather than the triangle gives out a gain between $1/4$ and $1/6$
+
+
+```
+$ make outline
+grep real nw_{naive,rect}.[a-z]*.time
+nw_naive.bin.time:real	0m0.042s
+nw_naive.py.time:real	0m4.978s
+nw_naive.pypy.time:real	0m0.207s
+nw_rect.bin.time:real	0m0.036s
+nw_rect.py.time:real	0m4.071s
+nw_rect.pypy.time:real	0m0.154s
+```

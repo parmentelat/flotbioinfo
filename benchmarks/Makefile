@@ -13,16 +13,16 @@ TIME_CBINS = $(foreach bin,$(CBINS),$(bin).bin.time)
 TIMES += $(TIME_CBINS)
 TIME_CXXBINS = $(foreach bin,$(CXXBINS),$(bin).bin.time)
 TIMES += $(TIME_CXXBINS)
-TIME_PYS = $(foreach py,$(PYS),$(py).time)
+TIME_PYS = $(foreach py,$(PYS),$(py).py.time)
 TIMES += $(TIME_PYS)
 TIME_PYPYS = $(foreach py,$(PYS),$(py).pypy.time)
 TIMES += $(TIME_PYPYS)
 #
-TIME_BASE_PYS = $(foreach py,$(BASE_PYS),base_$(py).time)
+TIME_BASE_PYS = $(foreach py,$(BASE_PYS),base_$(py).py.time)
 TIMES += $(TIME_BASE_PYS)
 TIME_BASE_PYPYS = $(foreach py,$(BASE_PYPYS),base_$(py).pypy.time)
 TIMES += $(TIME_BASE_PYPYS)
-TIME_BASE3_PYS = $(foreach py,$(BASE_PYS),base_$(py).time3)
+TIME_BASE3_PYS = $(foreach py,$(BASE_PYS),base_$(py).py3.time)
 TIMES += $(TIME_BASE3_PYS)
 
 all: $(BINS)
@@ -57,19 +57,19 @@ $(1).bin.time: $(1)
 endef
 
 define py_time_target
-$(1).time: $(1).py
-	{ time python2 $(1).py ; } 2>&1 | tee $(1).time
-$(1).time3: $(1).py
-	{ time python3 $(1).py ; } 2>&1 | tee $(1).time3
+$(1).py.time: $(1).py
+	{ time python2 $(1).py ; } 2>&1 | tee $(1).py.time
+$(1).py3.time: $(1).py
+	{ time python3 $(1).py ; } 2>&1 | tee $(1).py3.time3
 $(1).pypy.time: $(1).py
 	{ time pypy $(1).py ; } 2>&1 | tee $(1).pypy.time
 endef
 
 define base_py_time_target
-base_$(1).time: base.py
-	{ time python2 base.py $(1) ; } 2>&1 | tee base_$(1).time
-base_$(1).time3: base.py
-	{ time python3 base.py $(1) ; } 2>&1 | tee base_$(1).time3
+base_$(1).py.time: base.py
+	{ time python2 base.py $(1) ; } 2>&1 | tee base_$(1).py.time
+base_$(1).py3.time: base.py
+	{ time python3 base.py $(1) ; } 2>&1 | tee base_$(1).py3.time
 base_$(1).pypy.time: base.py
 	{ time pypy base.py $(1) ; } 2>&1 | tee base_$(1).pypy.time
 endef
@@ -81,5 +81,6 @@ $(foreach bin,$(CBINS) $(CXXBINS),$(eval $(call bin_time_target,$(bin))))
 $(foreach py,$(PYS),$(eval $(call py_time_target,$(py))))
 $(foreach py,$(BASE_PYS),$(eval $(call base_py_time_target,$(py))))
 
-foo:
-	@echo $(BASE_PYPYS)
+####################
+outline:
+	grep real nw_{naive,rect}.[a-z]*.time

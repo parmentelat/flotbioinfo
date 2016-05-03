@@ -24,10 +24,6 @@
 
 **DONE** couper en deux le notebook N&W itératif
 
-* nouveau notebook `w4-s09-c2-approfondissements`
-* dictionaire x tuple
-* et benchmarks Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
-
 ***
 ***
 ***
