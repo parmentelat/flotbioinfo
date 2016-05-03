@@ -1,3 +1,15 @@
+# Données manquantes ( -> François)
+
+## W3-S5 
+**TODO** Manque toujours les données pour illustrer le RBS
+
+## W5-S4
+**TODO** Manque toujours les données pour illustrer le UPGMA
+
+***
+***
+***
+
 # À intégrer (-> Christelle)
 
 ## exo w3 recherches
@@ -8,25 +20,13 @@
 
 **DONE** un notebook d'exercice à intégrer `w3-e2-regexp-serine.ipynb` 
 
-## W3-S9
+## W4-S9
 
-**TODO** couper en deux le notebook N&W itératif
+**DONE** couper en deux le notebook N&W itératif
 
-* nouveau notebook `w3-s09-c2-approfondissements`
+* nouveau notebook `w4-s09-c2-approfondissements`
 * dictionaire x tuple
 * et benchmarks Ajouter un mot sur les performances; un rapide benchmark montre un ratio **de 1 à 200** entre mon code python et une implémentation en C++
-
-***
-***
-***
-
-# Données manquantes ( -> François)
-
-## W3-S5 
-**TODO** Manque toujours les données pour illustrer le RBS
-
-## W5-S4
-**TODO** Manque toujours les données pour illustrer le UPGMA
 
 ***
 ***
@@ -40,3 +40,5 @@
 * **DONE** axe du zéro en rouge 
 
 
+## **TODO** 
+un `README` pour les benchmarks pour qu'on sache ce qui fait quoi là dedans

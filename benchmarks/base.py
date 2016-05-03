@@ -79,27 +79,27 @@ try:
         end = time.time()
         print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
-        def naive2_np(n):
-            beg = time.time()
-            costs = np.zeros( (n, n))
-            mid = time.time()
-            for i in myrange(n):
-                for j in myrange(n):
-                    if j > 0:
-                        costs[i, j] = costs[i, j-1] + i
-            end = time.time()
-            print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+    def naive2_np(n):
+        beg = time.time()
+        costs = np.zeros( (n, n))
+        mid = time.time()
+        for i in myrange(n):
+            for j in myrange(n):
+                if j > 0:
+                    costs[i, j] = costs[i, j-1] + i
+        end = time.time()
+        print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
     
-            def naive3_np(n):
-                beg = time.time()
-                costs = np.zeros( (n, n))
-                mid = time.time()
-                for i in myrange(n):
-                    for j in myrange(n):
-                        if j > 0:
-                            costs[i, j] = costs[i, j-1] - costs[i, j-1] + i
-                end = time.time()
-                print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
+    def naive3_np(n):
+        beg = time.time()
+        costs = np.zeros( (n, n))
+        mid = time.time()
+        for i in myrange(n):
+            for j in myrange(n):
+                if j > 0:
+                    costs[i, j] = costs[i, j-1] - costs[i, j-1] + i
+        end = time.time()
+        print("alloc = {}s - run = {}s".format(mid-beg, end-mid))
 
 except:
     pass

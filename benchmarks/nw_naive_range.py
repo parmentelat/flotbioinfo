@@ -9,15 +9,15 @@ def substitution_cost(base1, base2):
     return 1 if base1 != base2 else 0
 
 def init_costs(len1, len2):
-    return [ [ 0 for j in xrange(len2 + 1)] for i in xrange(len1 + 1)]
+    return [ [ 0 for j in range(len2 + 1)] for i in range(len1 + 1)]
 
 def phase1(adn1, adn2):
     len1 = len(adn1)
     len2 = len(adn2)
     costs = init_costs(len1, len2)
 
-    for c in xrange(len1 + len2 + 1):
-        for i in xrange(c + 1):
+    for c in range(len1 + len2 + 1):
+        for i in range(c + 1):
             j = c - i
             if 0 <= i <= len1 and 0 <= j <= len2:
                 if i == 0 and j == 0:
