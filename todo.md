@@ -30,11 +30,3 @@
 
 # Retouches
 
-## W1-S10
-
-* **DONE** bon réglage fenêtre glissante = 5000, 100
-* **DONE** axe du zéro en rouge 
-
-
-## **TODO** 
-un `README` pour les benchmarks pour qu'on sache ce qui fait quoi là dedans
