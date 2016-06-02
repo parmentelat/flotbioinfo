@@ -26,7 +26,7 @@ v2: $(NOTEBOOKS_V2)
 define v2_target
 $(call v2_path,$(1)): $(1).ipynb
 	@mkdir -p $(dir $(call v2_path,$(1)))
-	jupyter nbconvert --to notebook --nbformat=2 --output=$(call v2_path,$(1)) $(1).ipynb
+	jupyter nbconvert-2.7 --to notebook --nbformat=2 --output=$(call v2_path,$(1)) $(1).ipynb
 endef
 
 $(foreach notebase,$(NOTEBASES),$(eval $(call v2_target,$(notebase))))
