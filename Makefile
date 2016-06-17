@@ -1,6 +1,6 @@
 all: norm v2
 
-HOME=$(shell pwd)
+TOPLEVEL=$(shell pwd)
 
 # work on one week at a time with FOCUS=w1
 FOCUS     = $(wildcard w?)
@@ -16,7 +16,7 @@ force:
 
 # notebase -> full path of v2 notebook
 define v2_path
-$(HOME)/nbformat2/$(1).ipynb
+$(TOPLEVEL)/nbformat2/$(1).ipynb
 endef
 
 NOTEBOOKS_V2 = $(foreach notebase,$(NOTEBASES),$(call v2_path,$(notebase)))
@@ -37,7 +37,7 @@ $(foreach notebase,$(NOTEBASES),$(eval $(call v2_target,$(notebase))))
 
 # notebase -> full path of py module
 define py_path
-$(HOME)/modules/$(notdir $(subst -,_,$(1))).py
+$(TOPLEVEL)/modules/$(notdir $(subst -,_,$(1))).py
 endef
 
 NOTEBOOKS_PY = $(foreach notebase,$(NOTEBASES),$(call py_path,$(notebase)))
