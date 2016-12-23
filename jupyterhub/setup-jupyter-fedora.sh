@@ -17,6 +17,9 @@ echo ====================
 
 dnf -y install  redhat-rpm-config gcc gcc-c++ python3-devel rsync less
 
+# is this useful at all ?
+dnf install nodejs
+
 pip3 install jupyter
 
 type jupyter
@@ -32,6 +35,7 @@ jupyter notebook --generate-config
 
 ### operational python3 kernel at this point
 # jupyter notebook
+# but http://sandbox.pl.sophia.inria.fr:8888/nbextensions/widgets/notebook/js/extension.js?v=20160628095902 Failed to load resource: the server responded with a status of 404 (Not Found)
 
 ##########
 dnf install python-devel

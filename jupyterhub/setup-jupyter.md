@@ -1,6 +1,6 @@
 # Intro
 
-How I did set up the jupyter (ubuntu) VM in stupeflip.
+How I did set up the jupyter (ubuntu) VM.
 
 # prep on host: `thermals`
 
@@ -23,11 +23,11 @@ Post-install and open up ssh access for pushing setup script
 * in particular the creation of user `bioinfo`
 * it does not yet configure the VM so that jupyterhub gets started at boot-time
 * sept. 30 2015 : 
-jupyterhub (0.2.0)
-jupyter (1.0.0)
-jupyter-client (4.0.0)
-jupyter-console (4.0.2)
-jupyter-core (4.0.6)
+  * jupyterhub (0.2.0)
+  * jupyter (1.0.0)
+  * jupyter-client (4.0.0)
+  * jupyter-console (4.0.2)
+  * jupyter-core (4.0.6)
 
 # browser
 
@@ -43,7 +43,7 @@ For now this is mostly only a convenient way to show the notebooks in a running 
 
 ## configured `jupyterhub`
 
-* See `jupyter/` subdir in git repo for
+* See `jupyterhub/` subdir in git repo (flotbioinfo) for
 
   * initscript `jupyterhub.sh`
   * config file `/root/jupyterhub/jupyterhub_config.py` - primarily run on port 80
@@ -71,7 +71,7 @@ so that `sys.getdefaultencoding()` would finally return `UTF-8` and not stubborn
 
 ## git
 
-    # aptg-et install -y git
+    # apt-get install -y git
 
 ## PYTHONPATH
 
@@ -98,7 +98,9 @@ Then in order to install the keyboard shortcuts I had in place for developping f
     })
   
 ### rendering / CSS  
+
 `custom.css` is for rendering, for now I just copied manually
+
   * `flotpython/html/custom.css` 
   * onto `bioinfo@jupyter:.jupyter/`
   *  and in `.jupyter/profile_default/static/custom/custom.css` 
