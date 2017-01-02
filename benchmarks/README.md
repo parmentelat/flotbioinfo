@@ -1,13 +1,13 @@
 # Purpose
 
-Our goal is to compare the performance of the Needleman & Wunsch algoritme for computing the distance between 2 strings, in C++ *vs* python.
+Our goal is to compare the performance of **a python** and **a C++** implementations of the Needleman & Wunsch algorithm - for computing the distance between 2 strings.
 
 # Files
 
-The most relevant files for this benchmark are :
+The most relevant files for this benchmark are:
 
 ## python
-  * `nw_naive.py` that implements the same algorithm as in the notebook, except that we use `xrange` instead of `range`
+  * `nw_naive.py` that implements the same algorithm as in the notebook, except that we use `xrange` instead of `range` (the whole benchmark assumes here python2.7)
   * `nw_rect.py` that computes the actually useful range using min/max function instead of sweeping the whole triangle and then filtering out coordinates that do not fit into the rectangle.
 
 ## C++
