@@ -10,6 +10,6 @@
 
 for file in "$@"; do
     sed -i \
-	-e "s,^\(print(\),#CLEANUP \1," \
+	-e "s,^\( *print(\),#CLEANUP \1," \
 	$file
 done

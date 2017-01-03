@@ -73,7 +73,7 @@ while True:
     # once we reach 100, we get out of the loop
     if counter >= 100:
         break
-    print("counter = ", counter)
+#CLEANUP     print("counter = ", counter)
 #CLEANUP print("after the loop")
 
 

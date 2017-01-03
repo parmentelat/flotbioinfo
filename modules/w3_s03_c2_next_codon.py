@@ -40,7 +40,7 @@ for i in range(5):
     # and so in this case we just go to the next item in the loop
     if i % 3 == 0:
         continue
-    print("dealing with", i)    
+#CLEANUP     print("dealing with", i)    
 
 
 # ### `next_start_codon` : searching a triple on one phase
@@ -90,12 +90,12 @@ def next_start_codon(dna, start):
 dna = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
 
 for phase in 0, 1, 2:
-    print("PHASE", phase)
+#CLEANUP     print("PHASE", phase)
     next = phase
     while next is not None:
         next = next_start_codon(dna, next)
         if next is not None:
-            print("found at index", next, dna[next:next+3])
+#CLEANUP             print("found at index", next, dna[next:next+3])
             next += 3
 
 
@@ -146,11 +146,11 @@ def next_stop_codon(dna, start):
 
 #CLEANUP print(dna)
 for phase in 0, 1, 2:
-    print("PHASE", phase)
+#CLEANUP     print("PHASE", phase)
     next = phase
     while next is not None:
         next = next_stop_codon(dna, next)
         if next is not None:
-            print("found at index", next, dna[next:next+3])
+#CLEANUP             print("found at index", next, dna[next:next+3])
             next += 3
 

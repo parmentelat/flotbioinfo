@@ -54,7 +54,7 @@ def sweep(dna1, dna2):
     
     # we need to go up to len1 + len2 inclusive
     for c in range(len1 + len2 + 1):
-        print(10*'*', "diagonal c =", c)
+#CLEANUP         print(10*'*', "diagonal c =", c)
         # here again we want the dots on the 2 limits
         # and so we need to add 1 to c
         for i in range(c + 1):
@@ -63,7 +63,7 @@ def sweep(dna1, dna2):
             # we only consider the dots in the rectangle
             # here again we want to keep the edges, hence '<=' 
             if 0 <= i <= len1 and 0 <= j <= len2:
-                print(i, j)
+#CLEANUP                 print(i, j)
 
 
 # So for input values being respectively `ABC` and `AC` ![](media/nw-indices.png)
@@ -342,9 +342,9 @@ def needleman_wunsch(dna1, dna2):
     # run phase2
     s1, s2 = phase2(dna1, dna2, costs)
     # display result
-    print("distance = ", d)
-    print(s1)
-    print(s2)
+#CLEANUP     print("distance = ", d)
+#CLEANUP     print(s1)
+#CLEANUP     print(s2)
 
 
 # In[ ]:
