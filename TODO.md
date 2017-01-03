@@ -7,8 +7,3 @@
 
 ### le slicing 
   * utilisé ici et là, et je ne suis pas sûr que ce soit expliqué 
-
-*****
-## use nbautoeval from a submodule
-
-* will requie some tweaks as the github version is now in english IIRC
