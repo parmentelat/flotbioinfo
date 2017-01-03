@@ -3,162 +3,154 @@
 
 # <span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">François Rechenmann &amp; Thierry Parmentelat&nbsp;<img src="media/inria-25.png" style="display:inline"></span><br/>
 
-# # `next_start_codon` et `next_stop_codon`
+# # `next_start_codon` and `next_stop_codon`
 
-# Souvenons-nous à présent de l'algorithme de recherche de régions codantes que nous avons vu dans la séquence précédente, et dans lequel nous avions eu besoin de deux fonctions accessoires pour rechercher les codons **Start** et **Stop**. Voici le code que nous avions utilisé à ce moment-là, et qui utilise les concepts que nous venons de voir dans le complément sur la recherche de chaines en python.
+# Let us now remember the algorithm that searches for coding regions, that we have seen in the previous sequence, and in which we have been using two utility functions to locate **Start** and **Stop** codons. Here is the code that we used at that time, and that uses the concepts that we just saw in the notebooks on searching patterns in strings in python.
 
-# Mais n'oublions pas notre cellule usuelle&nbsp;:
+# But let us not forget the usual cell:
 
 # In[ ]:
 
-# la formule magique pour utiliser print() en python2 et python3
+# this is so that we can use print() in python2 like in python3
 from __future__ import print_function
-# pour que la division se comporte en python2 comme en python3
+# with this, division will behave in python2 like in python3
 from __future__ import division
 
 
-# ### L'opérateur `%` pour le calcul des modulos
+# ### The `%` operator for computing moduli
 
-# Dans le code suivant nous utilisons l'opérateur `%` qui calcule le modulo (ou le reste de la division) entre deux nombres. Par exemple
-
-# In[ ]:
-
-# l'opérateur % permet de calculer le modulo 
-###OFF print("le reste de la division de 25 par 10 vaut", 25 % 10)
-
-
-# ### L'instruction `continue`
-
-# Notre code utilise également l'instruction `continue`, qui permet d'interrompre le code de boucle courant (ici nous sommes dans un `for`) et de passer directement à l'itération suivante de la boucle.
+# In the following code, we will use the '%' operator that computes the modulo - i.e. the rest in integer division - between two numbers. For example:
 
 # In[ ]:
 
-# un exemple d'instruction `continue`
-# une boucle englobante qui itère sur les nombres de 0 à 4
-###OFF for i in range(5):
-###OFF     # mais on ignore les multiples de 3
-###OFF     # et dans ce cas on passe directement au i suivant
-###OFF     if i % 3 == 0:
-###OFF         continue
-###OFF     print("traitement de", i)    
+# 25 = 2 * 10 + 5 
+#CLEANUP print("the rest of 25 divided by 10 is", 25 % 10)
 
 
-# ### Recherche dans l'ADN ou dans l'ARN
+# ### The `continue` statement
 
-# Dans les vidéos on a vu les valeurs des codons **Start** et **Stop** comme contenant des `U` - et pas de `T`. C'est bien sûr équivalent de chercher `AUG` dans un ARN ou `ATG` dans l'ADN correspondant.
-# 
-# Pour des raisons pratiques, puisque les brins de matériel génétique dont nous partons sont presque toujours de l'ARN, aussi nous allons ici chercher des codons contenant des `T` et non des `U`.
-
-# ### `next_start_codon` et la recherche d'un triplet sur une phase
-
-# Nous pouvons à présent écrire le code de `next_start_codon`&nbsp;:
+# Our code this time uses the `continue` statement, that allows to exit the current loop (here a `for` loop) and to **move to the next iteration**.
 
 # In[ ]:
 
-# rappelons quel est le codon START
+# an example with a `continue` statement
+# the main loop scans numbers 0, 1, 2, 3 and 4
+for i in range(5):
+    # but we decide to ignore multiples of 3
+    # and so in this case we just go to the next item in the loop
+    if i % 3 == 0:
+        continue
+    print("dealing with", i)    
+
+
+# ### `next_start_codon` : searching a triple on one phase
+
+# We can now write the code for `next_start_codon`:
+
+# In[ ]:
+
+# reminder : the value for the START codon
 start_codon = "ATG"
 
 
 # In[ ]:
 
-# la fonction utilisée dans la recherche de régions codantes
-def next_start_codon(adn, indice):
+# the function used when looking for coding regions
+def next_start_codon(dna, start):
     """
-    localise le prochain START en commençant à 
-    indice et sur la même phase 
-    renvoie None s'il n'y en a plus
+    locates the next START codon from index start
+    and on the same phase as start
+    
+    returns None when there is no further match
     """
-    # on commencer à l'indice en question
-    courant = indice
-    # tant qu'on trouve un START
+    # starting at index start
+    index = start
+    # while we can find a START codon
     while True:
-        # on cherche un START à partir de la position
-        courant = adn.find(start_codon, courant)
-        # il n'y a plus rien à chercher
-        if courant == -1:
+        # looking for a START from that position
+        index = dna.find(start_codon, index)
+        # nothing left 
+        if index == -1:
             return None
-        # si on n'est pas sur la même phase que `indice`
-        # on ignore cet endroit
-        if (courant-indice) % 3 != 0:
-            # dans ce cas il faut incrémenter sinon 
-            # on reste sur place
-            courant += 3
-            # et on recherche plus loin
+        # if we are not on the same phase as start, we ignore that place
+        if (index - start) % 3 != 0:
+            # in this case we need to move forward a little,
+            # otherwise we will stay here forever
+            index += 3
+            # and we proceed with the search 
             continue
-        # sinon, il y a un match sur la bonne phase
-        return courant
-    # si on est ici c'est qu'il n'y a plus rien à trouver
-    return None
+        # here there is a match on the right phase, we can return this
+        return index
 
 
-# Pour nous convaincre que cette fonction fait bien ce qu'on attend d'elle, voici un petit test qui devrait couvrir la majorité des cas&nbsp;:
+# Let us convince ourselves that the function behaves as expected, with a small test that should cover most cases:
 
 # In[ ]:
 
-adn = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
+dna = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
 
-###OFF for phase in 0, 1, 2:
-###OFF     print("PHASE", phase)
-###OFF     next = phase
-###OFF     while next is not None:
-###OFF         next = next_start_codon(adn, next)
-###OFF         if next is not None:
-###OFF             print("trouvé à l'indice", next, adn[next:next+3])
-###OFF             next += 3
+for phase in 0, 1, 2:
+    print("PHASE", phase)
+    next = phase
+    while next is not None:
+        next = next_start_codon(dna, next)
+        if next is not None:
+            print("found at index", next, dna[next:next+3])
+            next += 3
 
 
-# ##### `next_stop_codon` et la recherche de 3 triplets sur une phase
+# ##### `next_stop_codon` : searching any of 3 triples on a phase
 
-# Sur un modèle très similaire, nous pouvons écrire à présent `next_stop_codon`&nbsp;:
+# Following a very similar appraoch, we can also now write `next_stop_codon`:
 
 # In[ ]:
 
+# the regular expressions module
 import re
-# on rappelle la définition de re_stop
-# pour chercher 'TAA' ou 'TAG' ou 'TGA', on utilise le ou logique |
+# reminder : the possible values for the STOP codon
+# we use a logical OR `|` to search for either 'TAA' or 'TAG' or 'TGA'
 re_stop = re.compile("TAA|TAG|TGA")
 
 
 # In[ ]:
 
-def next_stop_codon(adn, indice):
+def next_stop_codon(dna, start):
     """
-    localise le prochain START en commençant à 
-    indice et sur la même phase 
-    renvoie None s'il n'y en a plus
+    locates next STOP codon, starting at index start
+    and on the same phase as start
+
+    returns None when no further match can be found
     """
-    # on commencer à l'indice en question
-    courant = indice
-    # tant qu'on trouve un START
+    # we start at index start
+    index = start
+    # as long as necessary
     while True:
-        # on cherche un STOP à partir de la position
-        match = re_stop.search(adn, courant)
-        # il n'y a plus rien à chercher
+        # search a STOP from current index
+        match = re_stop.search(dna, index)
+        # nothing left to find
         if match is None:
             return None
-        # si on n'est pas sur la même phase que `indice`
-        # on ignore cet endroit
-        courant = match.start()
-        if (courant-indice) % 3 != 0:
-            courant += 3
+        # if not on the same phase as start, discard this match
+        index = match.start()
+        if (index - start) % 3 != 0:
+            # like above, we need to move forward a bit
+            index += 3
             continue
-        # sinon, il y a un match sur la bonne phase
-        return courant
-    # si on est ici c'est qu'il n'y a plus rien à trouver
-    return None
+        # we have a match on the right phase
+        return index
 
 
-# Et à nouveau on peut tester cette fonction sommairement&nbsp;:
+# And here again, we can run a quick sweep for testing this function:
 
 # In[ ]:
 
-###OFF print(adn)
-###OFF for phase in 0, 1, 2:
-###OFF     print("PHASE", phase)
-###OFF     next = phase
-###OFF     while next is not None:
-###OFF         next = next_stop_codon(adn, next)
-###OFF         if next is not None:
-###OFF             print("trouvé à l'indice", next, adn[next:next+3])
-###OFF             next += 3
+#CLEANUP print(dna)
+for phase in 0, 1, 2:
+    print("PHASE", phase)
+    next = phase
+    while next is not None:
+        next = next_stop_codon(dna, next)
+        if next is not None:
+            print("found at index", next, dna[next:next+3])
+            next += 3
 

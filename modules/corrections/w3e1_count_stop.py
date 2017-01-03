@@ -10,9 +10,9 @@ from nbautoeval.args import Args
 
 re_stop = re.compile("TAA|TAG|TGA")
 
-# @BEG@ name=calcul_gc_at
-def comptage_stop(adn):
-    return len(re_stop.findall(adn))
+# @BEG@ name=count_gc_at
+def count_stop(dna):
+    return len(re_stop.findall(dna))
 # @END@
 
 raw = """
@@ -30,12 +30,12 @@ raw = """
     TGATTTGCCGTGGCGAGAAAATGTCGATCGCCATTATGGCCGGCGTATTAGAAGCGCGCGGTCACAACGT
 """
 
-comptage_stop_inputs = [
+count_stop_inputs = [
     Args(line.strip()[:28]) for line in raw.split("\n") if line
 ]
 
-exo_comptage_stop = ExerciceFunction(
-    comptage_stop,
-    comptage_stop_inputs)
+exo_count_stop = ExerciceFunction(
+    count_stop,
+    count_stop_inputs)
 
     

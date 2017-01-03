@@ -68,6 +68,10 @@ normalize-nb normalize-notebook: force
 
 .PHONY: norm normalize normalize-nb normalize-notebook
 
+##########
+files:
+	@git ls-files | egrep -v 'nbformat2|w[0-9]/(media|data)'
+
 #################### convenience, for debugging only
 # make +foo : prints the value of $(foo)
 # make ++foo : idem but verbose, i.e. foo=$(foo)

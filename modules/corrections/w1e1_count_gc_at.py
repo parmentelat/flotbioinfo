@@ -8,20 +8,20 @@ from nbautoeval.args import Args
 
 nucleotides = 'CAGT'
 
-# @BEG@ name=calcul_gc_at
-def calcul_gc_at(adn):
+# @BEG@ name=count_gc_at
+def count_gc_at(dna):
     """
-    calcul des pourcentages de GC et de AT dans un adn
+    calcul des pourcentages de GC et de AT dans un dna
     """
-    total = len(adn)
+    total = len(dna)
     nb_gc = 0.
-    for nucleo in adn:
+    for nucleo in dna:
         if nucleo in "GC":
             nb_gc += 1
     return ( nb_gc / total, (total - nb_gc) / total)
 # @END@
 
-def calcul_gc_at_ko(adn):
+def count_gc_at_ko(dna):
     return (0.25, 0.75)
 
 raw = """
@@ -37,12 +37,12 @@ raw = """
     GCCCAAATAAAACATGTCCTGCATGGCATTAGTTTGTTGGGGCAGTGCCC
 """
 
-inputs_calcul_gc_at = [
+inputs_count_gc_at = [
     Args(line.strip()) for line in raw.split("\n") if line
 ]
 
-exo_calcul_gc_at = ExerciceFunction(calcul_gc_at,
-                                    inputs_calcul_gc_at,
+exo_count_gc_at = ExerciceFunction(count_gc_at,
+                                    inputs_count_gc_at,
                                     layout='pprint',
                                     layout_args=(40, 25, 25),
 )

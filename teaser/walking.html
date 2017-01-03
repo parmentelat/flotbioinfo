@@ -62,12 +62,12 @@ var predefined = 'AACTCCATGCAACTTCAGATGGTACAACTCACAATTGCGTCCTAGGTACATTGGAGGATTGC
     .append("g")
     .attr("transform", "translate(" + (width/2) + "," + (height/2) + ") scale(" + unit + ")");
 
-function update(adn) {
+function update(dna) {
 
     // DATA JOIN
     // Join new data with old elements, if any.
     var lines = svg.selectAll("line")
-	.data(adn, function(d, i) { return i; });
+	.data(dna, function(d, i) { return i; });
 
     // ENTER
     // Create new elements as needed.

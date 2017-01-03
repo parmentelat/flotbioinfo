@@ -11,9 +11,9 @@ def substitution_cost(base1, base2):
 def init_costs(len1, len2):
     return [ [ 0 for j in range(len2 + 1)] for i in range(len1 + 1)]
 
-def phase1(adn1, adn2):
-    len1 = len(adn1)
-    len2 = len(adn2)
+def phase1(dna1, dna2):
+    len1 = len(dna1)
+    len2 = len(dna2)
     costs = init_costs(len1, len2)
 
     for c in range(len1 + len2 + 1):
@@ -23,18 +23,18 @@ def phase1(adn1, adn2):
                 if i == 0 and j == 0:
                     costs[i][j] = 0
                 elif j == 0:
-                    costs[i][j] = costs[i-1][j] + insertion_cost(adn1[i-1])
+                    costs[i][j] = costs[i-1][j] + insertion_cost(dna1[i-1])
                 elif i == 0:
-                    costs[i][j] = costs[i][j-1] + insertion_cost(adn2[j-1])
+                    costs[i][j] = costs[i][j-1] + insertion_cost(dna2[j-1])
                 else:
                     costs[i][j] = min(
-                        costs[i-1][j-1] + substitution_cost(adn1[i-1], adn2[j-1]),
-                        costs[i][j-1] + insertion_cost(adn2[j-1]),
-                        costs[i-1][j] + insertion_cost(adn1[i-1]))
+                        costs[i-1][j-1] + substitution_cost(dna1[i-1], dna2[j-1]),
+                        costs[i][j-1] + insertion_cost(dna2[j-1]),
+                        costs[i-1][j] + insertion_cost(dna1[i-1]))
     return costs
 
-def distance(adn1, adn2):
-    return phase1(adn1, adn2)[-1][-1]
+def distance(dna1, dna2):
+    return phase1(dna1, dna2)[-1][-1]
 
 import sys
 def main():
