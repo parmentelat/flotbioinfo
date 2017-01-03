@@ -90,8 +90,8 @@ import timeit
 big_dna = 10**5 * 'ACGT' 
 
 #CLEANUP print(timeit.timeit('translate_dna_to_rna(big_dna)', 
-                    "from __main__ import translate_dna_to_rna, big_dna",
-                    number=10))
+#CLEANUP                     "from __main__ import translate_dna_to_rna, big_dna",
+#CLEANUP                     number=10))
 
 
 # In my environment, this prints something in the order of `0.5` (seconds), which tells us that for evaluating 10 times (this is what `number=10` is here for) the call to `translate_dna_to_rna(big_dna)`, it takes around a half second.
