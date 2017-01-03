@@ -5,7 +5,7 @@ from __future__ import division
 
 import re
 
-from nbautoeval.exercice_function import ExerciceFunction
+from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 re_stop = re.compile("TAA|TAG|TGA")
@@ -34,7 +34,7 @@ count_stop_inputs = [
     Args(line.strip()[:28]) for line in raw.split("\n") if line
 ]
 
-exo_count_stop = ExerciceFunction(
+exo_count_stop = ExerciseFunction(
     count_stop,
     count_stop_inputs)
 

@@ -3,7 +3,7 @@
 from __future__ import print_function
 from __future__ import division
 
-from nbautoeval.exercice_regexp import ExerciceRegexp
+from nbautoeval.exercise_regexp import ExerciseRegexp
 from nbautoeval.args import Args
 
 # @BEG@ name=regexp_serine
@@ -30,5 +30,5 @@ serine_inputs = [
     Args(line.strip()[:28]) for line in raw.split("\n") if line
 ]
 
-exo_serine = ExerciceRegexp("serine", serine_pattern, serine_inputs,
+exo_serine = ExerciseRegexp("serine", serine_pattern, serine_inputs,
                             match_mode='findall')

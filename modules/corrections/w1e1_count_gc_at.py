@@ -3,7 +3,7 @@
 from __future__ import print_function
 from __future__ import division
 
-from nbautoeval.exercice_function import ExerciceFunction
+from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
 nucleotides = 'CAGT'
@@ -41,8 +41,9 @@ inputs_count_gc_at = [
     Args(line.strip()) for line in raw.split("\n") if line
 ]
 
-exo_count_gc_at = ExerciceFunction(count_gc_at,
-                                    inputs_count_gc_at,
-                                    layout='pprint',
-                                    layout_args=(40, 25, 25),
+exo_count_gc_at = ExerciseFunction(
+    count_gc_at,
+    inputs_count_gc_at,
+    layout='pprint',
+    layout_args=(40, 25, 25),
 )

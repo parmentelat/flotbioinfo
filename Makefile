@@ -70,7 +70,7 @@ normalize-nb normalize-notebook: force
 
 ##########
 files:
-	@git ls-files | egrep -v 'nbformat2|w[0-9]/(media|data)'
+	@git ls-files | egrep -v 'nbformat2|w[0-9]/(media|data)|nbautoeval'
 
 #################### convenience, for debugging only
 # make +foo : prints the value of $(foo)
