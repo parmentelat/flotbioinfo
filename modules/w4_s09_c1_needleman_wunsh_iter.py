@@ -64,6 +64,7 @@ def sweep(dna1, dna2):
             # here again we want to keep the edges, hence '<=' 
             if 0 <= i <= len1 and 0 <= j <= len2:
 #CLEANUP                 print(i, j)
+                pass
 
 
 # So for input values being respectively `ABC` and `AC` ![](media/nw-indices.png)
