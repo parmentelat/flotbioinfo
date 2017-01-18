@@ -60,7 +60,7 @@ norm normalize: normalize-notebook
 # nbnorm.py now is python3 script
 # it is not in the git repo for bioinfo so locate from PATH
 NORM = nbnorm.py
-NORM_OPTIONS = --author "François Rechenmann" --author "Thierry Parmentelat" --version 1.0 --sign
+NORM_OPTIONS = --author "François Rechenmann" --author "Thierry Parmentelat" --version 1.0 --logo-path media/inria-25.png
 
 # -type f : we need to skip symlinks
 normalize-nb normalize-notebook: force
