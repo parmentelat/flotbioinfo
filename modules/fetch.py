@@ -3,7 +3,12 @@
 
 from __future__ import print_function
 
-import urllib2
+try:
+    # python2
+    from urllib2 import urlopen
+except:
+    # python3
+    from urllib.request import urlopen
 
 """
 A simplistic tool for fetching ADN sequences at ebi.ac.uk
@@ -21,11 +26,13 @@ def download(url, verbose=False):
     the actual download - discards obvious failures
     """
     
-    response = urllib2.urlopen(url)
+    response = urlopen(url)
     text = response.read()
+    if not isinstance(text, str):
+        text = text.decode()
     if 'not supported' in text:
         print("WARNING: url=", url)
-        print("  a retourné", text)
+        print("  returned", text)
     if verbose:
         print("url=", url)
         print("text=", text)
@@ -61,7 +68,9 @@ def fetch(key):
     try:
         return parse(download(url))
     except Exception as e:
-        print("Impossible d'aller chercher la clé {}".format(key))
+        import traceback
+        traceback.print_exc()
+        print("Could not fetch key {} (exception {})".format(key, e))
         return str(e)
 
 ####################
