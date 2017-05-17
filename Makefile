@@ -26,7 +26,7 @@ v2: $(NOTEBOOKS_V2)
 define v2_target
 $(call v2_path,$(1)): $(1).ipynb
 	@mkdir -p $(dir $(call v2_path,$(1)))
-	jupyter nbconvert-2.7 --to notebook --nbformat=2 --output=$(call v2_path,$(1)) $(1).ipynb
+	jupyter nbconvert --to notebook --nbformat=2 --output=$(call v2_path,$(1)) $(1).ipynb
 endef
 
 $(foreach notebase,$(NOTEBASES),$(eval $(call v2_target,$(notebase))))
@@ -60,7 +60,7 @@ norm normalize: normalize-notebook
 # nbnorm.py now is python3 script
 # it is not in the git repo for bioinfo so locate from PATH
 NORM = nbnorm.py
-NORM_OPTIONS = --author "François Rechenmann" --author "Thierry Parmentelat" --version 1.0 --logo-path media/inria-25.png --kernel 3
+NORM_OPTIONS = --author "François Rechenmann" --author "Thierry Parmentelat" --version 1.0 --logo-path media/inria-25.png --kernel 2
 
 # -type f : we need to skip symlinks
 normalize-nb normalize-notebook: force
