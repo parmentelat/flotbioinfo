@@ -3,14 +3,14 @@
 from __future__ import print_function
 from __future__ import division
 
-import re
-
 from nbautoeval.exercise_function import ExerciseFunction
 from nbautoeval.args import Args
 
+# @BEG@ name=count_gc_at
+import re
+
 re_stop = re.compile("TAA|TAG|TGA")
 
-# @BEG@ name=count_gc_at
 def count_stop(dna):
     return len(re_stop.findall(dna))
 # @END@
