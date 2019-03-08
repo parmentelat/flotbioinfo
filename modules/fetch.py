@@ -1,12 +1,7 @@
 # a simple and rustic download & parse tool
 # -*- coding: utf-8 -*-
 
-try:
-    # python2
-    from urllib2 import urlopen
-except:
-    # python3
-    from urllib.request import urlopen
+from urllib.request import urlopen
 
 """
 A simplistic tool for fetching ADN sequences at ebi.ac.uk
