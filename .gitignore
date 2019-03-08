@@ -1,6 +1,3 @@
-.ipynb_checkpoints/
+venv
+.ipynb_checkpoints
 *.pyc
-TAGS
-*.pdf
-*.mp4
-*.time*

@@ -1,7 +1,11 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# <span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">François Rechenmann &amp; Thierry Parmentelat&nbsp;<img src="media/inria-25.png" style="display:inline"></span><br/>
+# <div class="licence">
+# <span>Licence CC BY-NC-ND</span>
+# <span>François Rechenmann &amp; Thierry Parmentelat</span>
+# <span><img src="media/inria-25-alpha.png" /></span>
+# </div>
 
 # # Needleman and Wunsch algorithm
 
@@ -13,12 +17,14 @@
 
 # In[ ]:
 
+
 # the simplest insertion cost function
 def insertion_cost(base):
     return 1
 
 
 # In[ ]:
+
 
 # the simplest possible substitution cost
 def substitution_cost(base1, base2):
@@ -39,6 +45,7 @@ def substitution_cost(base1, base2):
 
 # In[ ]:
 
+
 # the skeleton for a diagnoal scanning
 def sweep(dna1, dna2):
     len1 = len(dna1)
@@ -46,7 +53,7 @@ def sweep(dna1, dna2):
     
     # we need to go up to len1 + len2 inclusive
     for c in range(len1 + len2 + 1):
-#CLEANUP         print(10*'*', "diagonal c =", c)
+        print(10*'*', "diagonal c =", c)
         # here again we want the dots on the 2 limits
         # and so we need to add 1 to c
         for i in range(c + 1):
@@ -55,15 +62,15 @@ def sweep(dna1, dna2):
             # we only consider the dots in the rectangle
             # here again we want to keep the edges, hence '<=' 
             if 0 <= i <= len1 and 0 <= j <= len2:
-#CLEANUP                 print(i, j)
-                pass
+                print(i, j)
 
 
 # So for input values being respectively `ABC` and `AC` ![](media/nw-indices.png)
 
 # In[ ]:
 
-# here is what our sweeping goes 
+
+# here is how our sweeping goes 
 sweep("ABC", "AC")
 
 
@@ -75,9 +82,10 @@ sweep("ABC", "AC")
 # 
 # There are several ways to achieve a close enough result. The first one is about using a list of lists. It is rather simple, and it looks like this:
 
-# ##### A list of liste
+# ##### A list of lists
 
 # In[ ]:
+
 
 # creating a double array as a list of lists
 rectangle = [
@@ -90,6 +98,7 @@ rectangle = [
 
 # In[ ]:
 
+
 # one indexing level
 rectangle[1]
 
@@ -98,6 +107,7 @@ rectangle[1]
 
 # In[ ]:
 
+
 # two indexing levels
 rectangle[1][2]
 
@@ -105,6 +115,7 @@ rectangle[1][2]
 # This first technique works well, and relies on a rather pleasant syntax. However, it requires some care for initialization. Here is one possible way to initialize it properly:
 
 # In[ ]:
+
 
 def init_costs(len1, len2):
     """
@@ -119,13 +130,14 @@ def init_costs(len1, len2):
 
 # In[ ]:
 
+
 # using data from the figure
 len1 = 3
 len2 = 2
 
 costs = init_costs(len1, len2)
 
-#CLEANUP print(costs)
+print(costs)
 
 
 # ##### Another method
@@ -137,6 +149,7 @@ costs = init_costs(len1, len2)
 # We now have everything we need to write the iterative version of Needleman and Wunsch:
 
 # In[ ]:
+
 
 def phase1(dna1, dna2):
     """
@@ -187,12 +200,14 @@ def phase1(dna1, dna2):
 
 # In[ ]:
 
+
 # a list
 l = [0, 12, 47]
 l[-1]
 
 
 # In[ ]:
+
 
 # and so we can access the overall distance like this 
 def distance(dna1, dna2):
@@ -205,10 +220,12 @@ def distance(dna1, dna2):
 
 # In[ ]:
 
+
 phase1("ACTG", "ACTC")
 
 
 # In[ ]:
+
 
 phase1("ACGTAGC", 
        "ACTGTAGC")
@@ -216,6 +233,7 @@ phase1("ACGTAGC",
 
 
 # In[ ]:
+
 
 phase1("ACTGCCAAC", "ACTGCGCAAC")
 
@@ -226,20 +244,22 @@ phase1("ACTGCCAAC", "ACTGCGCAAC")
 
 # In[ ]:
 
+
 from samples import sample_week4_sequence9 as original
-#CLEANUP print("original is {} long".format(len(original)))
-#CLEANUP print("original[600]=", original[600])
+print("original is {} long".format(len(original)))
+print("original[600]=", original[600])
 
 
 # Let us now create artificial differences by inserting and changing slightly the original sample:
 
 # In[ ]:
 
-# we insert a 'C' at index 300,  et replace the 'A' at index 600 with a 'G'
+
+# we insert a 'C' at index 300,  and replace the 'A' at index 600 with a 'G'
 fake = original[:300] + 'C' + original[300:600] + 'G' + original[601:]
 
 costs = phase1(original, fake)
-#CLEANUP print("We find distance", costs[-1][-1])
+print("We find distance", costs[-1][-1])
 
 
 # As you can see, this algorithm already is more efficient; however as it is quadratic (we must compute around $n^2$ values) this input with about 800+ bases already leads us to a few seconds of computation. 
@@ -253,12 +273,14 @@ costs = phase1(original, fake)
 # `ACCTCGTGTATCT*C*TTCGGCATC-ATCAT`
 # 
 # So as can be seen on this example:
+# 
 #   * insertions are rendered with a '-' in the shorter string,
 #   * and substitutions are rendered with a pair of `*` around the area of interest.
 
 # We start with a utility function that adds special `*` characters around a character when needed (i.e. when the `same` parameter is false):
 
 # In[ ]:
+
 
 # a utility function that adds '*' around one character
 # when 'same' est false
@@ -269,6 +291,7 @@ def outline(char, same=True):
 # Now we can write the code for `phase2`, a function that returns 2 character strings ready to be printed on top of one another. For efficiency reasons, we crop the result in two lists (`r1` and `r2`) that moreover are built from the end, due to the direction for the scan that starts from the end; `r1` and `r2` are properly reversed and translated into strings before they are returned to the caller:
 
 # In[ ]:
+
 
 # one possible way to write a phase2
 def phase2(dna1, dna2, costs):
@@ -326,6 +349,7 @@ def phase2(dna1, dna2, costs):
 
 # In[ ]:
 
+
 # we can now write a convenience function
 def needleman_wunsch(dna1, dna2):
     # compute costs with phase1
@@ -335,14 +359,15 @@ def needleman_wunsch(dna1, dna2):
     # run phase2
     s1, s2 = phase2(dna1, dna2, costs)
     # display result
-#CLEANUP     print("distance = ", d)
-#CLEANUP     print(s1)
-#CLEANUP     print(s2)
+    print("distance = ", d)
+    print(s1)
+    print(s2)
 
 
 # In[ ]:
 
-# et sur un exemple cela donne
+
+# and on an example this gives us
 sample1 = "ACCTCTGTATCTATTCGGCATCGATCAT"
 sample2 = "ACCTCGTGTATCTCTTCGGCATCATCAT"
 
@@ -353,19 +378,22 @@ needleman_wunsch(sample1, sample2)
 
 # In[ ]:
 
+
 # from a 35-bases DNA
 sample3 = "ACCTCTGTATCGGCATCGATACGCAACGGTTCCGA"
-#CLEANUP print("size sample3", len(sample3))
+print("size sample3", len(sample3))
 
 
 # In[ ]:
+
 
 # we insert pieces at 2 locations
 sample4 = sample3[:10] + 'CTATTGC' + sample3[10:20] + 'CATTGCTTGG' + sample3[20:]
-#CLEANUP print("size sample4", len(sample4))
+print("size sample4", len(sample4))
 
 
 # In[ ]:
+
 
 # and our algorithm produces this
 needleman_wunsch(sample3, sample4)

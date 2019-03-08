@@ -1,17 +1,20 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# <span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">François Rechenmann &amp; Thierry Parmentelat&nbsp;<img src="media/inria-25.png" style="display:inline"></span><br/>
+# <div class="licence">
+# <span>Licence CC BY-NC-ND</span>
+# <span>François Rechenmann &amp; Thierry Parmentelat</span>
+# <span><img src="media/inria-25-alpha.png" /></span>
+# </div>
 
 # # Computing the reverse complement sequence
-
-# Let us start like always with this:
 
 # ### One nucleotide's `complement`
 
 # In order to compute the reverse complement sequence for a DNA fragment, we start by defining a dictionary `complement` that maps one nucleotide to its complement:
 
 # In[ ]:
+
 
 # complement nucleotide
 complement = {
@@ -26,12 +29,14 @@ complement = {
 
 # In[ ]:
 
+
 complement['A']
 
 
 # ### The logic for our computation
 
 # We can now compute the reverse complement sequence, and for that we will
+# 
 # * compute the **list** of complement nucleotides, in their initial order, using a comprehension;
 # * reverse that list *in place* using the `reverse` method on lists;
 # * finally translate this list back into a string.
@@ -41,6 +46,7 @@ complement['A']
 # For that last step, we will use a very common trick in python programs, based on the `join` method on strings. Here are a few examples:
 
 # In[ ]:
+
 
 # The join method on strings
 "+".join(["spam", "eggs", "bacon"])
@@ -52,6 +58,7 @@ complement['A']
 
 # In[ ]:
 
+
 "".join(["s", "p", "a", "m"])
 
 
@@ -60,6 +67,7 @@ complement['A']
 # All these pieces acn be put together and lead us to the following code, for computing the reverse complement of a DNA fragment:
 
 # In[ ]:
+
 
 def reverse_complement(dna):
     """
@@ -80,11 +88,13 @@ def reverse_complement(dna):
 
 # In[ ]:
 
+
 from samples import sample_week3_sequence4
-#CLEANUP print(sample_week3_sequence4)
+print(sample_week3_sequence4)
 
 
 # In[ ]:
+
 
 # we get this
 reverse_complement(sample_week3_sequence4)
@@ -94,6 +104,7 @@ reverse_complement(sample_week3_sequence4)
 
 # In[ ]:
 
+
 reverse_complement("TAGCATCG")
 
 
@@ -101,15 +112,17 @@ reverse_complement("TAGCATCG")
 
 # In[ ]:
 
+
 from samples import subtilis
-#CLEANUP print("subtilis has {} bases".format(len(subtilis)))
+print("subtilis has {} bases".format(len(subtilis)))
 
 
 # In[ ]:
 
+
 i_subtilis = reverse_complement(subtilis)
 # we only display the first 60 bases
-#CLEANUP print(i_subtilis[:60])
+print(i_subtilis[:60])
 
 
 # ### Involution
@@ -117,6 +130,7 @@ i_subtilis = reverse_complement(subtilis)
 # When applied twice, the `reverse_complement` function should give us back our initial input - in pedantic language, this is called an involution. I will let you check this as an exercise:
 
 # In[ ]:
+
 
 # try to run reverse_complement twice in a row
 # and check that you find the input back

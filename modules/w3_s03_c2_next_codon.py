@@ -1,13 +1,15 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# <span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">François Rechenmann &amp; Thierry Parmentelat&nbsp;<img src="media/inria-25.png" style="display:inline"></span><br/>
+# <div class="licence">
+# <span>Licence CC BY-NC-ND</span>
+# <span>François Rechenmann &amp; Thierry Parmentelat</span>
+# <span><img src="media/inria-25-alpha.png" /></span>
+# </div>
 
 # # `next_start_codon` and `next_stop_codon`
 
 # Let us now remember the algorithm that searches for coding regions, that we have seen in the previous sequence, and in which we have been using two utility functions to locate **Start** and **Stop** codons. Here is the code that we used at that time, and that uses the concepts that we just saw in the notebooks on searching patterns in strings in python.
-
-# But let us not forget the usual cell:
 
 # ### The `%` operator for computing moduli
 
@@ -15,8 +17,9 @@
 
 # In[ ]:
 
+
 # 25 = 2 * 10 + 5 
-#CLEANUP print("the rest of 25 divided by 10 is", 25 % 10)
+print("the rest of 25 divided by 10 is", 25 % 10)
 
 
 # ### The `continue` statement
@@ -25,6 +28,7 @@
 
 # In[ ]:
 
+
 # an example with a `continue` statement
 # the main loop scans numbers 0, 1, 2, 3 and 4
 for i in range(5):
@@ -32,7 +36,7 @@ for i in range(5):
     # and so in this case we just go to the next item in the loop
     if i % 3 == 0:
         continue
-#CLEANUP     print("dealing with", i)    
+    print("dealing with", i)    
 
 
 # ### `next_start_codon` : searching a triple on one phase
@@ -41,11 +45,13 @@ for i in range(5):
 
 # In[ ]:
 
+
 # reminder : the value for the START codon
 start_codon = "ATG"
 
 
 # In[ ]:
+
 
 # the function used when looking for coding regions
 def next_start_codon(dna, start):
@@ -79,15 +85,16 @@ def next_start_codon(dna, start):
 
 # In[ ]:
 
+
 dna = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
 
 for phase in 0, 1, 2:
-#CLEANUP     print("PHASE", phase)
+    print("PHASE", phase)
     next = phase
     while next is not None:
         next = next_start_codon(dna, next)
         if next is not None:
-#CLEANUP             print("found at index", next, dna[next:next+3])
+            print("found at index", next, dna[next:next+3])
             next += 3
 
 
@@ -97,6 +104,7 @@ for phase in 0, 1, 2:
 
 # In[ ]:
 
+
 # the regular expressions module
 import re
 # reminder : the possible values for the STOP codon
@@ -105,6 +113,7 @@ re_stop = re.compile("TAA|TAG|TGA")
 
 
 # In[ ]:
+
 
 def next_stop_codon(dna, start):
     """
@@ -136,13 +145,14 @@ def next_stop_codon(dna, start):
 
 # In[ ]:
 
-#CLEANUP print(dna)
+
+print(dna)
 for phase in 0, 1, 2:
-#CLEANUP     print("PHASE", phase)
+    print("PHASE", phase)
     next = phase
     while next is not None:
         next = next_stop_codon(dna, next)
         if next is not None:
-#CLEANUP             print("found at index", next, dna[next:next+3])
+            print("found at index", next, dna[next:next+3])
             next += 3
 

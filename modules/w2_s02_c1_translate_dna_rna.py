@@ -1,11 +1,15 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# <span style="float:left;">Licence CC BY-NC-ND</span><span style="float:right;">François Rechenmann &amp; Thierry Parmentelat&nbsp;<img src="media/inria-25.png" style="display:inline"></span><br/>
+# <div class="licence">
+# <span>Licence CC BY-NC-ND</span>
+# <span>François Rechenmann &amp; Thierry Parmentelat</span>
+# <span><img src="media/inria-25-alpha.png" /></span>
+# </div>
 
 # # Translating DNA into RNA
 
-# In this notebook we will implement the very simple algorithm that translates DNA into corresponding RNA, after our usual python2/python3 compatibility cell:
+# In this notebook we will implement the very simple algorithm that translates DNA into corresponding RNA.
 
 # ### The algorithm
 
@@ -13,35 +17,39 @@
 
 # In[ ]:
 
+
 # from two strings
 st1 = "abc"
 st2 = "def"
 # using + we get the concatenation 
 concatenated = st1 + st2
-#CLEANUP print(concatenated)
+print(concatenated)
 
 
 # In[ ]:
+
 
 # notice that the two input strings are unchanged
-#CLEANUP print("st1:", st1, "st2:", st2)
+print("st1:", st1, "st2:", st2)
 
 
-# Also notice that python comes with a `+=` shorthand, that behaves like this:
+# Also notice that Python comes with a `+=` shorthand, that behaves like this:
 
 # In[ ]:
+
 
 # from one string
 string = "ATGC"
 # we can easily add at its end
 string += "CGAT"
 # and now string contains both parts
-#CLEANUP print(string)
+print(string)
 
 
 # Thanks to this concatenation operation on strings, we can implement our translation algorithm like this:
 
 # In[ ]:
+
 
 def translate_dna_to_rna(dna):
     """"
@@ -62,9 +70,10 @@ def translate_dna_to_rna(dna):
 
 # In[ ]:
 
+
 dna = "ATTCGATCGGGTATTACG"
 rna = translate_dna_to_rna(dna)
-#CLEANUP print(rna)
+print(rna)
 
 
 # ### Performance consideration (advanced)
@@ -75,15 +84,16 @@ rna = translate_dna_to_rna(dna)
 
 # In[ ]:
 
+
 # import the timeit module that does performance measurements
 import timeit
 
 # let us use a somewhat larger sample - around 400 000 nucléotides
 big_dna = 10**5 * 'ACGT' 
 
-#CLEANUP print(timeit.timeit('translate_dna_to_rna(big_dna)', 
-#CLEANUP                     "from __main__ import translate_dna_to_rna, big_dna",
-#CLEANUP                     number=10))
+print(timeit.timeit('translate_dna_to_rna(big_dna)', 
+                    "from __main__ import translate_dna_to_rna, big_dna",
+                    number=10))
 
 
 # In my environment, this prints something in the order of `0.5` (seconds), which tells us that for evaluating 10 times (this is what `number=10` is here for) the call to `translate_dna_to_rna(big_dna)`, it takes around a half second.
