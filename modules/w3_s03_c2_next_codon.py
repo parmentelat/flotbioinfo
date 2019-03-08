@@ -9,14 +9,6 @@
 
 # But let us not forget the usual cell:
 
-# In[ ]:
-
-# this is so that we can use print() in python2 like in python3
-from __future__ import print_function
-# with this, division will behave in python2 like in python3
-from __future__ import division
-
-
 # ### The `%` operator for computing moduli
 
 # In the following code, we will use the '%' operator that computes the modulo - i.e. the rest in integer division - between two numbers. For example:

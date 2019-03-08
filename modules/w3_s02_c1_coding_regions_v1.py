@@ -9,14 +9,6 @@
 
 # But as always, let us start with our magic formulas
 
-# In[ ]:
-
-# this is so that we can use print() in python2 like in python3
-from __future__ import print_function
-# with this, division will behave in python2 like in python3
-from __future__ import division
-
-
 # ### Searching in DNA or in RNA
 
 # In the videos, we have seen the *Start* and *Stop* codons as containing `U` - and not `T`. Let us first notice that it is of course equivalent to search for `AUG` in RNA or `ATG` in the corresponding DNA.

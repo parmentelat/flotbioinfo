@@ -1,8 +1,6 @@
 # a simple and rustic download & parse tool
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
-
 try:
     # python2
     from urllib2 import urlopen

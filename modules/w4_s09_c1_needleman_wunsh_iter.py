@@ -7,14 +7,6 @@
 
 # ## Iterative form
 
-# In[ ]:
-
-# this is so that we can use print() in python2 like in python3
-from __future__ import print_function
-# with this, division will behave in python2 like in python3
-from __future__ import division
-
-
 # ### Cost functions
 
 # Let us use same code for the cost functions, as the ones we had for the first, recursive, version of this algorithm:

@@ -7,14 +7,6 @@
 
 # Let us start like always with this:
 
-# In[ ]:
-
-# this is so that we can use print() in python2 like in python3
-from __future__ import print_function
-# with this, division will behave in python2 like in python3
-from __future__ import division
-
-
 # ### One nucleotide's `complement`
 
 # In order to compute the reverse complement sequence for a DNA fragment, we start by defining a dictionary `complement` that maps one nucleotide to its complement:

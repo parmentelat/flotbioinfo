@@ -7,14 +7,6 @@
 
 # In this notebook we will implement the very simple algorithm that translates DNA into corresponding RNA, after our usual python2/python3 compatibility cell:
 
-# In[ ]:
-
-# this is so that we can use print() in python2 like in python3
-from __future__ import print_function
-# with this, division will behave in python2 like in python3
-from __future__ import division
-
-
 # ### The algorithm
 
 # The job is obviously as simple as it gets. Our first naive version is to create an empty string that we fill as we go. When doing this we will use the `+` operator on strings, that allows to create a new chain, as can be seen here:
