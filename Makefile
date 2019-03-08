@@ -1,4 +1,4 @@
-all: norm v2
+all: norm
 
 TOPLEVEL=$(shell pwd)
 
@@ -10,28 +10,6 @@ NOTEBASES = $(subst .ipynb,,$(NOTEBOOKS))
 # for phony targets
 force:
 
-####################
-# our notebooks now use format 4.0
-# to downgrade one can run this
-
-# notebase -> full path of v2 notebook
-define v2_path
-$(TOPLEVEL)/nbformat2/$(1).ipynb
-endef
-
-NOTEBOOKS_V2 = $(foreach notebase,$(NOTEBASES),$(call v2_path,$(notebase)))
-
-v2: $(NOTEBOOKS_V2)
-
-define v2_target
-$(call v2_path,$(1)): $(1).ipynb
-	@mkdir -p $(dir $(call v2_path,$(1)))
-	jupyter nbconvert --to notebook --nbformat=2 --output=$(call v2_path,$(1)) $(1).ipynb
-endef
-
-$(foreach notebase,$(NOTEBASES),$(eval $(call v2_target,$(notebase))))
-
-.PHONY: v2
 ####################
 # the notebooks saved in python format
 
@@ -59,8 +37,8 @@ norm normalize: normalize-notebook
 
 # nbnorm.py now is python3 script
 # it is not in the git repo for bioinfo so locate from PATH
-NORM = nbnorm.py
-NORM_OPTIONS = --author "François Rechenmann" --author "Thierry Parmentelat" --version 1.0 --logo-path media/inria-25.png --kernel 2
+NORM = $(HOME)/git/flotpython-tools/tools/nbnorm.py
+NORM_OPTIONS = --author "François Rechenmann" --author "Thierry Parmentelat" --version 1.0 --logo-path media/inria-25.png
 
 # -type f : we need to skip symlinks
 normalize-nb normalize-notebook: force
@@ -70,7 +48,7 @@ normalize-nb normalize-notebook: force
 
 ##########
 files:
-	@git ls-files | egrep -v 'nbformat2|w[0-9]/(media|data)|nbautoeval'
+	@git ls-files | egrep -v 'w[0-9]/(media|data)|nbautoeval'
 
 #################### convenience, for debugging only
 # make +foo : prints the value of $(foo)
