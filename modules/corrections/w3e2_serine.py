@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
-from __future__ import division
-
 from nbautoeval.exercise_regexp import ExerciseRegexp
 from nbautoeval.args import Args
 
