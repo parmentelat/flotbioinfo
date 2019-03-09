@@ -1,7 +1,7 @@
 # pylint: disable=c0111
 from nbhosting.courses import (
-    Sections, Section, Notebook,
-    notebooks_by_pattern, sections_by_directory,
+    Track, Section, Notebook,
+    notebooks_by_pattern, track_by_directory,
     DEFAULT_TRACK)
 
 def tracks(coursedir):
@@ -14,7 +14,8 @@ def tracks(coursedir):
     course, but you can define alternate tracks among the
     course material
 
-    result should be a Sections object
+    result should be a dictionary of
+    trackname -> Track instance
     """
 
     french_week_names = {
@@ -33,11 +34,11 @@ def tracks(coursedir):
         'w5': "phylogenetic trees",
     }
 
-
-    def _track(prefix, week_names):
-        return sections_by_directory(
+    # the naming scheme is based on the language
+    def _track(lang_prefix, week_names):
+        return track_by_directory(
             coursedir,
-            notebooks_by_pattern(coursedir, f"w?/{prefix}-w?-s*.ipynb"),
+            notebooks_by_pattern(coursedir, f"w?/{lang_prefix}-w?-s*.ipynb"),
             dir_labels = week_names)
 
     return {
