@@ -1,8 +1,7 @@
 # pylint: disable=c0111
 from nbhosting.courses import (
     Track, Section, Notebook,
-    notebooks_by_pattern, track_by_directory,
-    DEFAULT_TRACK)
+    notebooks_by_pattern, track_by_directory)
 
 def tracks(coursedir):
     """
@@ -35,13 +34,17 @@ def tracks(coursedir):
     }
 
     # the naming scheme is based on the language
-    def _track(lang_prefix, week_names):
-        return track_by_directory(
+    return [
+        track_by_directory(
             coursedir,
-            notebooks_by_pattern(coursedir, f"w?/{lang_prefix}-w?-s*.ipynb"),
-            dir_labels = week_names)
-
-    return {
-        DEFAULT_TRACK: _track("fr", french_week_names),
-        'english': _track("en", english_week_names),
-    }
+            name="français",
+            description='Compléments du MOOC "Bioinformatique : Algorithmes et Génomes"',
+            notebooks=notebooks_by_pattern(coursedir, f"w?/fr-w?-s*.ipynb"),
+            directory_labels=french_week_names),
+        track_by_directory(
+            coursedir,
+            name="english",
+            description='Complements for MOOC "Bioinformatics: Genomes and Algorithms"',
+            notebooks=notebooks_by_pattern(coursedir, f"w?/en-w?-s*.ipynb"),
+            directory_labels=english_week_names),
+        ]
