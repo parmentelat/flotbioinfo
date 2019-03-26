@@ -6,8 +6,3 @@ FROM nbhosting/scipy-notebook
 
 # --------
 RUN pip install plotly mpld3
-
-
-#RUN conda install -y mpld3
-RUN pip install mpld3
-
