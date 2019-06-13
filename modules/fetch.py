@@ -7,11 +7,13 @@ from urllib.request import urlopen
 A simplistic tool for fetching ADN sequences at ebi.ac.uk
 """
 
+import ssl
+
 def ebi_url(key):
     """
     default strategy to map a key to a URL
     """
-    return 'http://www.ebi.ac.uk/ena/data/view/{key}&display=text&download=txt&filename={key}.txt'\
+    return 'https://www.ebi.ac.uk/ena/data/view/{key}&display=text&download=txt&filename={key}.txt'\
         .format(key=key)
 
 def download(url, verbose=False):
@@ -19,7 +21,7 @@ def download(url, verbose=False):
     the actual download - discards obvious failures
     """
     
-    response = urlopen(url)
+    response = urlopen(url, context=ssl.SSLContext())
     text = response.read()
     if not isinstance(text, str):
         text = text.decode()
