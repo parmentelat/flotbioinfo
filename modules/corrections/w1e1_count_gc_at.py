@@ -41,6 +41,4 @@ inputs_count_gc_at = [
 exo_count_gc_at = ExerciseFunction(
     count_gc_at,
     inputs_count_gc_at,
-    layout='pprint',
-    layout_args=(40, 25, 25),
 )
