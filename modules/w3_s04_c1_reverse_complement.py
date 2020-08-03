@@ -30,7 +30,7 @@ complement = {
 # In[ ]:
 
 
-complement['A']
+#complement['A']
 
 
 # ### The logic for our computation
@@ -49,7 +49,7 @@ complement['A']
 
 
 # The join method on strings
-"+".join(["spam", "eggs", "bacon"])
+#"+".join(["spam", "eggs", "bacon"])
 
 
 # As can be seen, the string that is the subject of `join` (in the above case `"+"`) is used to join the various pieces sent as arguments.
@@ -59,7 +59,7 @@ complement['A']
 # In[ ]:
 
 
-"".join(["s", "p", "a", "m"])
+#"".join(["s", "p", "a", "m"])
 
 
 # ### Putting it together
@@ -89,15 +89,15 @@ def reverse_complement(dna):
 # In[ ]:
 
 
-from samples import sample_week3_sequence4
-print(sample_week3_sequence4)
+#from samples import sample_week3_sequence4
+#print(sample_week3_sequence4)
 
 
 # In[ ]:
 
 
 # we get this
-reverse_complement(sample_week3_sequence4)
+#reverse_complement(sample_week3_sequence4)
 
 
 # Or again on a smaller input sample:
@@ -105,7 +105,7 @@ reverse_complement(sample_week3_sequence4)
 # In[ ]:
 
 
-reverse_complement("TAGCATCG")
+#reverse_complement("TAGCATCG")
 
 
 # And now on a much larger sample, to get an idea of the algorithm's performance:
@@ -113,16 +113,16 @@ reverse_complement("TAGCATCG")
 # In[ ]:
 
 
-from samples import subtilis
-print("subtilis has {} bases".format(len(subtilis)))
+#from samples import subtilis
+#print("subtilis has {} bases".format(len(subtilis)))
 
 
 # In[ ]:
 
 
-i_subtilis = reverse_complement(subtilis)
+#i_subtilis = reverse_complement(subtilis)
 # we only display the first 60 bases
-print(i_subtilis[:60])
+#print(i_subtilis[:60])
 
 
 # ### Involution

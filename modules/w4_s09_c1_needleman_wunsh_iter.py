@@ -71,7 +71,7 @@ def sweep(dna1, dna2):
 
 
 # here is how our sweeping goes 
-sweep("ABC", "AC")
+#sweep("ABC", "AC")
 
 
 # ### Double entry arrays
@@ -100,7 +100,7 @@ rectangle = [
 
 
 # one indexing level
-rectangle[1]
+#rectangle[1]
 
 
 # which can be indexed itself again:
@@ -109,7 +109,7 @@ rectangle[1]
 
 
 # two indexing levels
-rectangle[1][2]
+#rectangle[1][2]
 
 
 # This first technique works well, and relies on a rather pleasant syntax. However, it requires some care for initialization. Here is one possible way to initialize it properly:
@@ -132,12 +132,12 @@ def init_costs(len1, len2):
 
 
 # using data from the figure
-len1 = 3
-len2 = 2
+#len1 = 3
+#len2 = 2
 
-costs = init_costs(len1, len2)
+#costs = init_costs(len1, len2)
 
-print(costs)
+#print(costs)
 
 
 # ##### Another method
@@ -202,8 +202,8 @@ def phase1(dna1, dna2):
 
 
 # a list
-l = [0, 12, 47]
-l[-1]
+#l = [0, 12, 47]
+#l[-1]
 
 
 # In[ ]:
@@ -221,21 +221,21 @@ def distance(dna1, dna2):
 # In[ ]:
 
 
-phase1("ACTG", "ACTC")
+#phase1("ACTG", "ACTC")
 
 
 # In[ ]:
 
 
-phase1("ACGTAGC", 
-       "ACTGTAGC")
+#phase1("ACGTAGC", 
+#       "ACTGTAGC")
 #          ^           
 
 
 # In[ ]:
 
 
-phase1("ACTGCCAAC", "ACTGCGCAAC")
+#phase1("ACTGCCAAC", "ACTGCGCAAC")
 
 
 # ### Performances
@@ -245,9 +245,9 @@ phase1("ACTGCCAAC", "ACTGCGCAAC")
 # In[ ]:
 
 
-from samples import sample_week4_sequence9 as original
-print("original is {} long".format(len(original)))
-print("original[600]=", original[600])
+#from samples import sample_week4_sequence9 as original
+#print("original is {} long".format(len(original)))
+#print("original[600]=", original[600])
 
 
 # Let us now create artificial differences by inserting and changing slightly the original sample:
@@ -256,10 +256,10 @@ print("original[600]=", original[600])
 
 
 # we insert a 'C' at index 300,  and replace the 'A' at index 600 with a 'G'
-fake = original[:300] + 'C' + original[300:600] + 'G' + original[601:]
-
-costs = phase1(original, fake)
-print("We find distance", costs[-1][-1])
+#fake = original[:300] + 'C' + original[300:600] + 'G' + original[601:]
+#
+#costs = phase1(original, fake)
+#print("We find distance", costs[-1][-1])
 
 
 # As you can see, this algorithm already is more efficient; however as it is quadratic (we must compute around $n^2$ values) this input with about 800+ bases already leads us to a few seconds of computation. 
@@ -368,10 +368,10 @@ def needleman_wunsch(dna1, dna2):
 
 
 # and on an example this gives us
-sample1 = "ACCTCTGTATCTATTCGGCATCGATCAT"
-sample2 = "ACCTCGTGTATCTCTTCGGCATCATCAT"
+#sample1 = "ACCTCTGTATCTATTCGGCATCGATCAT"
+#sample2 = "ACCTCGTGTATCTCTTCGGCATCATCAT"
 
-needleman_wunsch(sample1, sample2)
+#needleman_wunsch(sample1, sample2)
 
 
 # You can also play with more substantial changes:
@@ -380,23 +380,23 @@ needleman_wunsch(sample1, sample2)
 
 
 # from a 35-bases DNA
-sample3 = "ACCTCTGTATCGGCATCGATACGCAACGGTTCCGA"
-print("size sample3", len(sample3))
+#sample3 = "ACCTCTGTATCGGCATCGATACGCAACGGTTCCGA"
+#print("size sample3", len(sample3))
 
 
 # In[ ]:
 
 
 # we insert pieces at 2 locations
-sample4 = sample3[:10] + 'CTATTGC' + sample3[10:20] + 'CATTGCTTGG' + sample3[20:]
-print("size sample4", len(sample4))
+#sample4 = sample3[:10] + 'CTATTGC' + sample3[10:20] + 'CATTGCTTGG' + sample3[20:]
+#print("size sample4", len(sample4))
 
 
 # In[ ]:
 
 
 # and our algorithm produces this
-needleman_wunsch(sample3, sample4)
+#needleman_wunsch(sample3, sample4)
 
 
 # You can notice some fuzziness at the place where insertions occurred, but for the most part, common pieces are correctly identified.

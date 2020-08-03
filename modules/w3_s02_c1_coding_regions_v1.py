@@ -46,7 +46,7 @@ from w3_s03_c2_next_codon import next_start_codon, next_stop_codon
 
 # here we find START because the search starts at index 0
 # and ATG is at index 6, and so on the same phase
-next_start_codon("CGTACGATG", 0)
+#next_start_codon("CGTACGATG", 0)
 
 
 # In[ ]:
@@ -55,7 +55,7 @@ next_start_codon("CGTACGATG", 0)
 # on the other hand here, nothing can be found 
 # because the starting index is on a different phase 
 # than the one where ATG is located
-next_start_codon("CGTACGATG", 1)
+#next_start_codon("CGTACGATG", 1)
 
 
 # ### The  `break` statement
@@ -66,15 +66,15 @@ next_start_codon("CGTACGATG", 1)
 
 
 # an apparently endless loop
-counter = 1
-while True:
-    # the counter is doubled
-    counter += counter
-    # once we reach 100, we get out of the loop
-    if counter >= 100:
-        break
-    print("counter = ", counter)
-print("after the loop")
+#counter = 1
+#while True:
+#    # the counter is doubled
+#    counter += counter
+#    # once we reach 100, we get out of the loop
+#    if counter >= 100:
+#        break
+#    print("counter = ", counter)
+#print("after the loop")
 
 
 # ### The algorithm
@@ -143,16 +143,16 @@ def coding_regions_one_phase(dna, phase, minimal_length=300):
 # In[ ]:
 
 
-from samples import subtilis
-print("subtilis has {} bases".format(len(subtilis)))
+#from samples import subtilis
+#print("subtilis has {} bases".format(len(subtilis)))
 
 
 # In[ ]:
 
 
 # let us compute genes on phase 0
-genes = coding_regions_one_phase(subtilis, 0)
-print("We found {} genes on phase 0".format(len(genes)))
+#genes = coding_regions_one_phase(subtilis, 0)
+#print("We found {} genes on phase 0".format(len(genes)))
 
 
 # ### A few statistics (optional)
@@ -163,29 +163,29 @@ print("We found {} genes on phase 0".format(len(genes)))
 
 
 # the array of the genes lengths
-array_of_lengths = [ y-x for x,y in genes ]
+#array_of_lengths = [ y-x for x,y in genes ]
 
 # total length of all found genes
-total_length = sum ( array_of_lengths )
+#total_length = sum ( array_of_lengths )
 # the average length of genes
-average_length = total_length / len(genes)
-print('average gene length', average_length)
+#average_length = total_length / len(genes)
+#print('average gene length', average_length)
 
 
 # In[ ]:
 
 
 # minimal and maximal size
-length_min = min ( array_of_lengths )
-length_max = max ( array_of_lengths )
-print("min = {}, max = {}".format(length_min, length_max))
+#length_min = min ( array_of_lengths )
+#length_max = max ( array_of_lengths )
+#print("min = {}, max = {}".format(length_min, length_max))
 
 
 # In[ ]:
 
 
 # percentage of the coding region wrt total length
-print("Percentage of coding region", total_length/len(subtilis))
+#print("Percentage of coding region", total_length/len(subtilis))
 
 
 # ##### A histogram with gene lengths
@@ -196,22 +196,22 @@ print("Percentage of coding region", total_length/len(subtilis))
 
 
 # importing matplotlib
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 # display inside the notebook
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 # sizes
-import pylab
-pylab.rcParams['figure.figsize'] = 8., 8.
+#import pylab
+#pylab.rcParams['figure.figsize'] = 8., 8.
 
 
 # In[ ]:
 
 
 # a histogram of lengths
-plt.hist(array_of_lengths, bins=75)
-plt.axis([300, 7700, 0, 400])
-plt.show()
+#plt.hist(array_of_lengths, bins=75)
+#plt.axis([300, 7700, 0, 400])
+#plt.show()
 
 
 # ### Notice on style

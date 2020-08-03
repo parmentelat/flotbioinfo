@@ -19,7 +19,7 @@
 
 
 # 25 = 2 * 10 + 5 
-print("the rest of 25 divided by 10 is", 25 % 10)
+#print("the rest of 25 divided by 10 is", 25 % 10)
 
 
 # ### The `continue` statement
@@ -31,12 +31,12 @@ print("the rest of 25 divided by 10 is", 25 % 10)
 
 # an example with a `continue` statement
 # the main loop scans numbers 0, 1, 2, 3 and 4
-for i in range(5):
-    # but we decide to ignore multiples of 3
-    # and so in this case we just go to the next item in the loop
-    if i % 3 == 0:
-        continue
-    print("dealing with", i)    
+#for i in range(5):
+#    # but we decide to ignore multiples of 3
+#    # and so in this case we just go to the next item in the loop
+#    if i % 3 == 0:
+#        continue
+#    print("dealing with", i)    
 
 
 # ### `next_start_codon` : searching a triple on one phase
@@ -86,16 +86,16 @@ def next_start_codon(dna, start):
 # In[ ]:
 
 
-dna = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
+#dna = "ATGCGATGTATGCGTGCAGCTGCTAGCTCGTAATGTCGTCATGGATCATCGATCATGG"
 
-for phase in 0, 1, 2:
-    print("PHASE", phase)
-    next = phase
-    while next is not None:
-        next = next_start_codon(dna, next)
-        if next is not None:
-            print("found at index", next, dna[next:next+3])
-            next += 3
+#for phase in 0, 1, 2:
+#    print("PHASE", phase)
+#    next = phase
+#    while next is not None:
+#        next = next_start_codon(dna, next)
+#        if next is not None:
+#            print("found at index", next, dna[next:next+3])
+#            next += 3
 
 
 # ##### `next_stop_codon` : searching any of 3 triples on a phase
@@ -146,13 +146,13 @@ def next_stop_codon(dna, start):
 # In[ ]:
 
 
-print(dna)
-for phase in 0, 1, 2:
-    print("PHASE", phase)
-    next = phase
-    while next is not None:
-        next = next_stop_codon(dna, next)
-        if next is not None:
-            print("found at index", next, dna[next:next+3])
-            next += 3
+#print(dna)
+#for phase in 0, 1, 2:
+#    print("PHASE", phase)
+#    next = phase
+#    while next is not None:
+#        next = next_stop_codon(dna, next)
+#        if next is not None:
+#            print("found at index", next, dna[next:next+3])
+#            next += 3
 
