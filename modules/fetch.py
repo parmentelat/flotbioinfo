@@ -13,8 +13,7 @@ def ebi_url(key):
     """
     default strategy to map a key to a URL
     """
-    return 'https://www.ebi.ac.uk/ena/data/view/{key}&display=text&download=txt&filename={key}.txt'\
-        .format(key=key)
+    return f"https://www.ebi.ac.uk/ena/browser/api/embl/{key}?download=true"
 
 def download(url, verbose=False):
     """
