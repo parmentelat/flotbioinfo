@@ -1,0 +1,45 @@
+static-mappings:
+  - source: data
+    destination: data
+  - source: media
+    destination: media
+
+tracks:
+- name: français
+  description: "Compléments du MOOC \"Bioinformatique : Algorithmes et Génomes\""
+  id: french
+  sections:
+  - name: "ADN et séquences génomiques"
+    notebooks:
+    - w1/fr-w1-s*.ipynb
+  - name: "gènes et protéines"
+    notebooks:
+    - w2/fr-w2-s*.ipynb
+  - name: "prédiction des gènes"
+    notebooks:
+    - w3/fr-w3-s*.ipynb
+  - name: "comparaison de séquences"
+    notebooks:
+    - w4/fr-w4-s*.ipynb
+  - name: "arbres phylogénétiques"
+    notebooks:
+    - w5/fr-w5-s*.ipynb
+- name: english
+  description: "Additions for MOOC \"Bioinformatics: Genomes and Algorithms\""
+  id: english
+  sections:
+  - name: "genomic texts"
+    notebooks:
+    - w1/en-w1-s*.ipynb
+  - name: "genes & proteins"
+    notebooks:
+    - w2/en-w2-s*.ipynb
+  - name: "gene prediction"
+    notebooks:
+    - w3/en-w3-s*.ipynb
+  - name: "sequence comparison"
+    notebooks:
+    - w4/en-w4-s*.ipynb
+  - name: "phylogenetic trees"
+    notebooks:
+    - w5/en-w5-s*.ipynb
